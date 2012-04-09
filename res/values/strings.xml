@@ -7,12 +7,12 @@
     
     <string name="textBatteryInfo">Battery Info</string>
     <string name="textState">State:</string>
-	<string name="textPlug">Plug:</string>
-	<string name="textLevel">Level:</string>
-	<string name="textScale">Scale:</string>
-	<string name="textVoltage">Voltage:</string>
-	<string name="textTemperature">Temperature:</string>
-	<string name="textTechnology">Technology:</string>
+    <string name="textPlug">Plug:</string>
+    <string name="textLevel">Level:</string>
+    <string name="textScale">Scale:</string>
+    <string name="textVoltage">Voltage:</string>
+    <string name="textTemperature">Temperature:</string>
+    <string name="textTechnology">Technology:</string>
     <string name="textHealth">Health:</string>
 
     <string name="Unknown">Unknown</string>

@@ -45,14 +45,14 @@ public class OnWidgetClick extends Activity{
 		
 		setContentView(R.layout.battery_info_view);
 
-		mStatusView	     =  (TextView) findViewById(R.id.state);
-		mPlugView  		 =  (TextView) findViewById(R.id.plug);
-		mLevelView 		 =  (TextView) findViewById(R.id.level);
-		mScaleView 	 	 =  (TextView) findViewById(R.id.scale);
-		mVoltageView 	 =  (TextView) findViewById(R.id.voltage);
+		mStatusView      =  (TextView) findViewById(R.id.state);
+		mPlugView        =  (TextView) findViewById(R.id.plug);
+		mLevelView       =  (TextView) findViewById(R.id.level);
+		mScaleView       =  (TextView) findViewById(R.id.scale);
+		mVoltageView     =  (TextView) findViewById(R.id.voltage);
 		mTemperatureView =  (TextView) findViewById(R.id.temperature);
 		mTechnologyView  =  (TextView) findViewById(R.id.technology);
-		mHealthView		 =  (TextView) findViewById(R.id.health);
+		mHealthView      =  (TextView) findViewById(R.id.health);
 		
 		updateBatteryInfoView();		
 		
@@ -66,16 +66,16 @@ public class OnWidgetClick extends Activity{
 			
 	        mStatusView.setText(getBatteryStatus());
 	        mPlugView.setText(getBatteryPlug());
-			mLevelView.setText(mBatteryInfo.getValue(Constants.LEVEL, 0)+ 
-											this.getString(R.string.batteryLevelSymbol));
-			mScaleView.setText(mBatteryInfo.getValue(Constants.SCALE, 0)+ 
-											this.getString(R.string.Empty));
-			mVoltageView.setText(mBatteryInfo.getValue(Constants.VOLTAGE, 0)+ 
-											this.getString(R.string.batteryVoltSymbol));
-			mTemperatureView.setText(getBatteryTemperature()+ 
-											this.getString(R.string.batteryCelsiusSymbol));
-			mTechnologyView.setText(mBatteryInfo.getValue(Constants.TECHNOLOGY,"")+ 
-											this.getString(R.string.Empty));
+			mLevelView.setText(mBatteryInfo.getValue(Constants.LEVEL, 0)+
+                                this.getString(R.string.batteryLevelSymbol));
+			mScaleView.setText(mBatteryInfo.getValue(Constants.SCALE, 0)+
+                                this.getString(R.string.Empty));
+			mVoltageView.setText(mBatteryInfo.getValue(Constants.VOLTAGE, 0)+
+                                this.getString(R.string.batteryVoltSymbol));
+			mTemperatureView.setText(getBatteryTemperature()+
+                                this.getString(R.string.batteryCelsiusSymbol));
+			mTechnologyView.setText(mBatteryInfo.getValue(Constants.TECHNOLOGY,"")+
+                                this.getString(R.string.Empty));
 			mHealthView.setText(getBatteryHealth());
 			
 		}catch (Exception e) {}
@@ -88,17 +88,17 @@ public class OnWidgetClick extends Activity{
 		int status = mBatteryInfo.getValue(Constants.STATUS, 0);
 		switch (status){
 		
-		case BatteryManager.BATTERY_STATUS_UNKNOWN:
+        case BatteryManager.BATTERY_STATUS_UNKNOWN:
             return R.string.Unknown;
-		case BatteryManager.BATTERY_STATUS_CHARGING:
+        case BatteryManager.BATTERY_STATUS_CHARGING:
             return R.string.batteryStatusCharging;
-		case BatteryManager.BATTERY_STATUS_DISCHARGING:
+        case BatteryManager.BATTERY_STATUS_DISCHARGING:
             return R.string.batteryStatusDischarging;
-		case BatteryManager.BATTERY_STATUS_FULL:
+        case BatteryManager.BATTERY_STATUS_FULL:
             return R.string.batteryStatusFull;
-		case BatteryManager.BATTERY_STATUS_NOT_CHARGING:
+        case BatteryManager.BATTERY_STATUS_NOT_CHARGING:
             return R.string.batteryStatusNotCharging;
-		default:
+        default:
             return R.string.Unknown;
 		}
 	}

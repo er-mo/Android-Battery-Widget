@@ -21,15 +21,15 @@ public class Constants {
 	
 	public final static String BATTERY_INFO	=  "BATTERY_INFO_WIDGET";
 	
-	public final static String STATUS  		=  "status";	
-	public final static String PLUG   		=  "plugged";
-	public final static String LEVEL  		=  "level";
-	public final static String SCALE		=  "scale";
-	public final static String VOLTAGE		=  "voltage";
-	public final static String TEMPERATURE	=  "temperature";
-	public final static String TECHNOLOGY	=  "technology";
-	public final static String HEALTH   	=  "health";
+	public final static String STATUS       =  "status";	
+	public final static String PLUG         =  "plugged";
+	public final static String LEVEL        =  "level";
+	public final static String SCALE        =  "scale";
+	public final static String VOLTAGE      =  "voltage";
+	public final static String TEMPERATURE  =  "temperature";
+	public final static String TECHNOLOGY   =  "technology";
+	public final static String HEALTH       =  "health";
 	
-	public final static String DEFAULT   	=  "unknown";
+	public final static String DEFAULT      =  "unknown";
 	
 }

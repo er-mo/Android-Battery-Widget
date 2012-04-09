@@ -20,7 +20,7 @@
               android:orientation="vertical" 
               android:gravity="center">
 
-		<TextView 
+        <TextView 
              android:layout_width="270sp"
              android:layout_height="wrap_content"
              android:paddingBottom="10sp"
