@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>          
+<!-- 
+*  Copyright 2012 Erkan Molla
+*
+*  Licensed under the Apache License, Version 2.0 (the "License");
+*  you may not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing, software
+*  distributed under the License is distributed on an "AS IS" BASIS,
+*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*  See the License for the specific language governing permissions and
+*  limitations under the License.
+ -->                                                                                             
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent" 
+              android:layout_height="fill_parent"
+              android:orientation="vertical" 
+              android:gravity="center">
+
+		<TextView 
+             android:layout_width="270sp"
+             android:layout_height="wrap_content"
+             android:paddingBottom="10sp"
+             android:textColor="@color/LightBlue"
+             android:background="@color/Black"
+             android:gravity="center"
+             android:textSize="23sp"
+             android:textStyle="bold"
+             android:typeface="serif"
+             android:text="@string/textBatteryInfo" >
+        </TextView>
+      
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >    
+    
+    <TableLayout 
+        android:layout_width="270sp" 
+        android:layout_height="wrap_content"
+        android:paddingTop="10sp" 
+        android:paddingBottom="5sp"
+        android:background="@color/Black" >
+        
+        <TableRow>
+            <TextView 
+                style="@style/style_table_1" 
+                android:text="@string/textState" />
+            <TextView 
+                style="@style/style_table_2" 
+                android:id="@+id/state" />
+        </TableRow>
+        <TableRow>
+            <TextView 
+                style="@style/style_table_1" 
+                android:text="@string/textPlug" />
+            <TextView 
+                style="@style/style_table_2" 
+                android:id="@+id/plug" />
+        </TableRow>
+        <TableRow>
+            <TextView 
+                style="@style/style_table_1" 
+                android:text="@string/textLevel" />
+            <TextView 
+                style="@style/style_table_2" 
+                android:id="@+id/level" />
+        </TableRow>
+        <TableRow>
+            <TextView 
+                style="@style/style_table_1" 
+                android:text="@string/textScale" />
+            <TextView 
+                style="@style/style_table_2" 
+                android:id="@+id/scale" />
+        </TableRow>
+        <TableRow>
+            <TextView 
+                style="@style/style_table_1" 
+                android:text="@string/textVoltage" />                                                        
+            <TextView 
+                style="@style/style_table_2" 
+                android:id="@+id/voltage" />
+        </TableRow>
+    	<TableRow>
+            <TextView 
+                style="@style/style_table_1" 
+                android:text="@string/textTemperature" />
+            <TextView 
+                style="@style/style_table_2" 
+                android:id="@+id/temperature" />
+        </TableRow>
+        <TableRow>
+            <TextView 
+                style="@style/style_table_1" 
+                android:text="@string/textTechnology" />
+            <TextView 
+                style="@style/style_table_2" 
+                android:id="@+id/technology" />
+        </TableRow>
+        <TableRow>
+            <TextView 
+                style="@style/style_table_1" 
+                android:text="@string/textHealth" />
+            <TextView 
+                style="@style/style_table_2" 
+                android:id="@+id/health" />
+        </TableRow>  
+    </TableLayout>
+		
+</RelativeLayout>
+</LinearLayout>
+    
+    
+    
+    
+    
+    
+    
+    

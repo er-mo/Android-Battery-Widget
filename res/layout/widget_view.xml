@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+*  Copyright 2012 Erkan Molla
+*
+*  Licensed under the Apache License, Version 2.0 (the "License");
+*  you may not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing, software
+*  distributed under the License is distributed on an "AS IS" BASIS,
+*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*  See the License for the specific language governing permissions and
+*  limitations under the License.
+ -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    			android:id="@+id/widget_view"
+    			android:layout_width="fill_parent"
+    			android:layout_height="fill_parent" 
+    			android:focusable="true" >
+		
+		<ImageView
+		       android:id="@+id/percent100"
+		       android:layout_width="wrap_content" 
+		       android:layout_height="wrap_content"
+		       android:layout_centerHorizontal="true"
+		       android:visibility="invisible"
+		       android:src="@drawable/lic_100" >
+		</ImageView>
+		  
+		<ImageView
+		       android:id="@+id/percent90"
+		       android:layout_width="wrap_content" 
+		       android:layout_height="wrap_content"
+		       android:layout_centerHorizontal="true"
+		       android:visibility="invisible" 
+		       android:src="@drawable/lic_90" >
+		</ImageView>
+		  
+		<ImageView
+		       android:id="@+id/percent80"
+		       android:layout_width="wrap_content" 
+		       android:layout_height="wrap_content"
+		       android:layout_centerHorizontal="true"
+		       android:visibility="invisible" 
+		       android:src="@drawable/lic_80" >
+		</ImageView>
+		  
+		<ImageView
+		       android:id="@+id/percent70"
+		       android:layout_width="wrap_content" 
+		       android:layout_height="wrap_content"
+		       android:layout_centerHorizontal="true"
+		       android:visibility="invisible" 
+		       android:src="@drawable/lic_70" >
+		</ImageView>
+		  
+		<ImageView
+		       android:id="@+id/percent60"
+		       android:layout_width="wrap_content" 
+		       android:layout_height="wrap_content" 
+		       android:layout_centerHorizontal="true"
+		       android:visibility="invisible"
+		       android:src="@drawable/lic_60" >
+		</ImageView>  
+		
+		<ImageView
+		       android:id="@+id/percent50"
+		       android:layout_width="wrap_content" 
+		       android:layout_height="wrap_content"
+		       android:layout_centerHorizontal="true"
+		       android:visibility="invisible" 
+		       android:src="@drawable/lic_50" >
+		</ImageView>
+		 
+		<ImageView
+		       android:id="@+id/percent40"
+		       android:layout_width="wrap_content" 
+		       android:layout_height="wrap_content"
+		       android:layout_centerHorizontal="true"
+		       android:visibility="invisible" 
+		       android:src="@drawable/lic_40" >
+		</ImageView>
+		
+		<ImageView
+		       android:id="@+id/percent30"
+		       android:layout_width="wrap_content" 
+		       android:layout_height="wrap_content"
+		       android:layout_centerHorizontal="true"
+		       android:visibility="invisible" 
+		       android:src="@drawable/lic_30" >
+		</ImageView>
+		
+		<ImageView
+		       android:id="@+id/percent20"
+		       android:layout_width="wrap_content" 
+		       android:layout_height="wrap_content"
+		       android:layout_centerHorizontal="true"
+		       android:visibility="invisible"
+		       android:src="@drawable/lic_20" >
+		</ImageView>
+		       
+		<ImageView
+		       android:id="@+id/percent10"
+		       android:layout_width="wrap_content" 
+		       android:layout_height="wrap_content"
+		       android:layout_centerHorizontal="true"
+		       android:visibility="invisible"
+		       android:src="@drawable/lic_10" >
+		</ImageView>
+		
+    	<ImageView 
+		     android:id="@+id/battery_view"
+		     android:layout_width="wrap_content" 
+		     android:layout_height="wrap_content"
+		     android:layout_centerHorizontal="true"
+		     android:src="@drawable/battery" >
+		</ImageView>
+		
+		<ImageView
+		       android:id="@+id/charge_view"
+		       android:layout_width="wrap_content" 
+		       android:layout_height="wrap_content"
+		       android:layout_centerHorizontal="true"
+		       android:visibility="gone"
+		       android:src="@drawable/charge" >
+		</ImageView>
+		
+		<TextView  
+		      android:id="@+id/batterytext"
+		      android:layout_width="wrap_content" 
+		      android:layout_height="wrap_content"
+		      android:layout_alignLeft="@+id/battery_view"
+		      android:layout_alignTop="@+id/battery_view"
+		      android:layout_alignRight="@+id/battery_view"
+		      android:layout_alignBottom="@+id/battery_view"
+		      android:gravity="center|center"
+		      android:maxLines="1"
+		      android:textSize="15sp"
+		      android:typeface="sans"
+		      android:textStyle="bold"
+		      android:textColor="@color/White"
+		      android:shadowColor="@color/Black"
+		      android:shadowRadius="2">
+		</TextView>
+		
+</RelativeLayout>
