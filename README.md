@@ -1,8 +1,8 @@
-## Battery Widget Indictor
+## Battery Widget Indicator
 
-An elegant battery widget for android
+An elegant battery widget for versions 2.2 (Froyo) or higher
 
-Required android version 2.2 (Froyo) or higher
+This app is placed on your Android device's home screen so you can quickly check your battery level
 
 
 ## Screenshots

@@ -14,7 +14,7 @@
 *  limitations under the License.
 */
 
-package com.kokteil.packages.batterywidget;
+package com.batterywidget;
 
 import android.app.PendingIntent;
 import android.app.Service;
