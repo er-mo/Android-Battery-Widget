@@ -19,7 +19,8 @@ package com.batterywidget;
 
 public class Constants {
 	
-	public final static String BATTERY_INFO	=  "BATTERY_INFO_WIDGET";
+	public final static String BATTERY_INFO	     =  "BATTERY_INFO_WIDGET";
+	public final static String BATTERY_SETTINGS  =  "BATTERY_SETTINGS";
 	
 	public final static String STATUS       =  "status";	
 	public final static String PLUG         =  "plugged";
@@ -29,7 +30,18 @@ public class Constants {
 	public final static String TEMPERATURE  =  "temperature";
 	public final static String TECHNOLOGY   =  "technology";
 	public final static String HEALTH       =  "health";
-	
 	public final static String DEFAULT      =  "unknown";
 	
+	public final static String BATTERY_USAGE = "android.intent.action.POWER_USAGE_SUMMARY";
+	
+	public final static String VIBRATION_SETTINGS  =  "vibration_settings";
+	public final static String SOUND_SETTINGS      =  "sound_settings"; 
+	public final static String COLOUR_SETTINGS     =  "colour_settings";
+	
+	public final static String VIBRATION_CHECKBOX_KEY  =  "vibration_checkbox";
+	public final static String SOUND_CHECKBOX_KEY      =  "sound_checkbox";
+	public final static String COLOUR_LIST_KEY         =  "colour_list";
+	
+	public final static String DEFAULT_COLOUR    =  "#FFFFFF";
+
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen                                                                                                                                        
+	xmlns:android="http://schemas.android.com/apk/res/android"	
+	android:title="@string/settingsManager" >
+	
+	<PreferenceCategory
+		android:title="Low Battery Notification" >
+		<CheckBoxPreference
+			android:key="vibration_checkbox"
+			android:persistent="false"
+			android:summary="notify with vibration when buttery level really low"
+			android:title="Vibration" >
+		</CheckBoxPreference>
+		<CheckBoxPreference
+			android:key="sound_checkbox"
+			android:persistent="false"
+			android:summary="notify with sound when buttery level really low"
+			android:title="Sound" >
+		</CheckBoxPreference>
+	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:title="Level Text Colour" >
+		<ListPreference
+			android:key="colour_list"
+			android:title="Text Colour"
+			android:defaultValue="#FFFFFF"
+			android:summary="change the colour of the level"
+			android:entries="@array/textColourListEntries"
+			android:entryValues="@array/textColourListEntryValues" >
+		</ListPreference>	
+	</PreferenceCategory>
+
+</PreferenceScreen>

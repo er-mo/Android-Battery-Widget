@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+	<string-array name="textColourListEntries">
+		<item name="White">White</item>
+		<item name="Black">Black</item>
+		<item name="Yellow">Yellow</item>
+	</string-array>
+	
+	<string-array name="textColourListEntryValues">
+		<item name="White">#FFFFFF</item>
+		<item name="Black">#000000</item>
+		<item name="Yellow">#FFFF00</item>
+	</string-array>
+
+</resources>

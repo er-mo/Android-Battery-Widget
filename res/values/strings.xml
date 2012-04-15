@@ -37,4 +37,10 @@
     <string name="batteryVoltSymbol"> mV</string>
     <string name="batteryCelsiusSymbol">\u00B0 C</string>
     
+    <string name="infoViewSummaryButton">Summary</string>
+    <string name="infoViewSettingsButton">Settings</string>
+    <string name="infoViewPreferencesButton">Preferences</string>
+    
+    <string name="settingsManager">Battery Widget Settings</string>
+    
 </resources>

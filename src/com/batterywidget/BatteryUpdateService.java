@@ -16,12 +16,15 @@
 
 package com.batterywidget;
 
+import com.batterywidget.Preferences.Preferences;
+
 import android.app.PendingIntent;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.BatteryManager;
 import android.os.IBinder;
 import android.view.View;
@@ -38,7 +41,7 @@ public class BatteryUpdateService extends Service {
 
     @Override
     public void onStart(Intent intent, int id){
-
+ 
         if (mBatteryReceiver == null)
             registerNewReceiver();
 
@@ -76,6 +79,7 @@ public class BatteryUpdateService extends Service {
         mBatteryReceiver = new BatteryReceiver();
         mIntentFilter 	 = new IntentFilter();
         mIntentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
+        mIntentFilter.addAction(Intent.ACTION_BATTERY_LOW);
         registerReceiver(mBatteryReceiver, mIntentFilter);
     }
 
@@ -83,41 +87,46 @@ public class BatteryUpdateService extends Service {
     private RemoteViews getWidgetRemoteView(){
 
         RemoteViews widgetView = new RemoteViews(this.getPackageName(), R.layout.widget_view);
-
-        widgetView.setViewVisibility(R.id.batterytext, View.VISIBLE);
-        widgetView.setViewVisibility(R.id.percent100, isBetweenOf(100)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent90, isBetweenOf(90)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent80, isBetweenOf(80)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent70, isBetweenOf(70)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent60, isBetweenOf(60)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent50, isBetweenOf(50)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent40, isBetweenOf(40)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent30, isBetweenOf(30)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent20, isBetweenOf(20)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent10, batteryLevel <= 10? View.VISIBLE:View.INVISIBLE);	
-
         widgetView.setImageViewResource(R.id.battery_view, R.drawable.battery);
 
-        widgetView.setViewVisibility(R.id.charge_view, batteryStatus == BatteryManager.BATTERY_STATUS_CHARGING? 
-                                                                                 View.VISIBLE:View.INVISIBLE);
-
+        widgetView.setViewVisibility(R.id.percent100, isRoundOf(100)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent90, isRoundOf(90)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent80, isRoundOf(80)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent70, isRoundOf(70)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent60, isRoundOf(60)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent50, isRoundOf(50)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent40, isRoundOf(40)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent30, isRoundOf(30)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent20, isRoundOf(20)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent10, batteryLevel <= 10? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.batterytext, View.VISIBLE);
+        
+        Preferences mSettings  =  new Preferences(Constants.BATTERY_SETTINGS, getApplicationContext());
+        
+        widgetView.setTextColor(R.id.batterytext, Color.parseColor(mSettings.getValue
+                                               (Constants.COLOUR_SETTINGS, Constants.DEFAULT_COLOUR)));
         widgetView.setTextViewText(R.id.batterytext, String.valueOf(batteryLevel)+"%");
 
+        
+        widgetView.setViewVisibility(R.id.charge_view, batteryStatus == BatteryManager.BATTERY_STATUS_CHARGING? 
+                                                                                 View.VISIBLE:View.INVISIBLE);
+        
         PendingIntent mPendingIntent = PendingIntent.getActivity(this, 0, 
-                                                 new Intent(this, OnWidgetClick.class), 0);
+                                                 new Intent(this, OnWidgetTap.class), 0);
         widgetView.setOnClickPendingIntent(R.id.widget_view, mPendingIntent);
 
         return widgetView;
     }
+    
 
-    private boolean isBetweenOf(int percent){
+    private boolean isRoundOf(int percent){
         int minus = percent - 10;
         if (batteryLevel <= percent && batteryLevel > minus)
             return true;
         else
             return false;
     }
-
+    
 }
 
 

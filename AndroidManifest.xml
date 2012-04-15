@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kokteil.packages.batterywidget"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="com.batterywidget"
+    android:versionCode="2"
+    android:versionName="1.0.1" >
 
-    <uses-sdk android:minSdkVersion="8" />
+    <uses-sdk 
+        android:targetSdkVersion="15"
+        android:minSdkVersion="8" >
+    </uses-sdk>
+    
     <uses-permission android:name="android.permission.READ_PHONE_STATE" /> 
+    <uses-permission android:name="android.permission.VIBRATE" />
     
     <application
         android:icon="@drawable/launcher"
@@ -29,16 +34,22 @@
             android:label="@string/battery_broadcast_receiver">
             <intent-filter>
                  <action android:name="android.intent.action.BATTERY_CHANGED" />
+                 <action android:name="android.intent.action.BATTERY_LOW" />
             </intent-filter>
         </receiver>
             
         <activity 
-            android:name=".OnWidgetClick"
+            android:name=".OnWidgetTap"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="orientation|keyboardHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />                                                                                             
             </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".SettingsManager"
+            android:label="@string/settingsManager" >
         </activity>
         
     </application>

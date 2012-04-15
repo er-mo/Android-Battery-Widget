@@ -16,14 +16,20 @@
 
 package com.batterywidget;
 
+import com.batterywidget.Preferences.Preferences;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 
 
-public class OnWidgetClick extends Activity{
+public class OnWidgetTap extends Activity implements OnClickListener{
 	
     private TextView 	mStatusView;
     private TextView	mPlugView;
@@ -34,8 +40,12 @@ public class OnWidgetClick extends Activity{
     private TextView	mTechnologyView;
     private TextView	mHealthView;
 
+    private Button		mSummaryButton;
+    private Button		mSettingsButton;
+    
     private Preferences 	mBatteryInfo;
 
+    
     @Override
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -53,10 +63,30 @@ public class OnWidgetClick extends Activity{
         mTemperatureView =  (TextView) findViewById(R.id.temperature);
         mTechnologyView  =  (TextView) findViewById(R.id.technology);
         mHealthView      =  (TextView) findViewById(R.id.health);
-
+        
+        mSummaryButton    =  (Button) findViewById(R.id.summaryButton);
+        mSettingsButton	  =  (Button) findViewById(R.id.settingsButton);
+        
         updateBatteryInfoView();		
 
     }
+    
+    
+	@Override
+	public void onClick(View view) {
+		
+		switch (view.getId()) {
+		case R.id.summaryButton:
+			this.startActivity(new Intent(Constants.BATTERY_USAGE));
+			break;
+		case R.id.settingsButton:
+			this.startActivity(new Intent(getApplicationContext(), SettingsManager.class));
+			break;
+		default:
+			break;
+		}
+	}
+
 
     public void updateBatteryInfoView(){
     
@@ -78,6 +108,9 @@ public class OnWidgetClick extends Activity{
                                         this.getString(R.string.Empty));
             mHealthView.setText(getBatteryHealth());
 
+            mSummaryButton.setOnClickListener(this);
+            mSettingsButton.setOnClickListener(this);
+            
         }catch (Exception e) {}
 
     }
@@ -87,7 +120,6 @@ public class OnWidgetClick extends Activity{
 
         int status = mBatteryInfo.getValue(Constants.STATUS, 0);
         switch (status){
-
             case BatteryManager.BATTERY_STATUS_UNKNOWN:
                 return R.string.Unknown;
             case BatteryManager.BATTERY_STATUS_CHARGING:
@@ -108,7 +140,6 @@ public class OnWidgetClick extends Activity{
 
         int plug = mBatteryInfo.getValue(Constants.PLUG, 0);
         switch (plug) {
-
             case BatteryManager.BATTERY_PLUGGED_AC:
                 return R.string.batteryPlugAC;
             case BatteryManager.BATTERY_PLUGGED_USB:
@@ -118,11 +149,11 @@ public class OnWidgetClick extends Activity{
         }
     }
 
+    
     private int getBatteryHealth(){
 
         int health = mBatteryInfo.getValue(Constants.HEALTH, 0);
         switch (health){
-
             case BatteryManager.BATTERY_HEALTH_DEAD:
                 return R.string.batteryHealthDead;
             case BatteryManager.BATTERY_HEALTH_GOOD:
@@ -138,7 +169,7 @@ public class OnWidgetClick extends Activity{
         }
     }
 
-	
+    
     private int getBatteryTemperature(){
         int temperature = mBatteryInfo.getValue(Constants.TEMPERATURE, 0);
         temperature = temperature / 10;
