@@ -5,13 +5,21 @@
 	<string-array name="textColourListEntries">
 		<item name="White">White</item>
 		<item name="Black">Black</item>
-		<item name="Yellow">Yellow</item>
+        <item name="Yellow">Yellow</item>
+        <item name="Red">Red</item>
+        <item name="Violet">Violet</item>
+        <item name="Lime">Lime</item>
+        <item name="DarkGreen">DarkGreen</item>
 	</string-array>
 	
 	<string-array name="textColourListEntryValues">
 		<item name="White">#FFFFFF</item>
 		<item name="Black">#000000</item>
-		<item name="Yellow">#FFFF00</item>
+        <item name="Yellow">#FFFF00</item>
+        <item name="Red">#FF0000</item>
+        <item name="Violet">#EE82EE</item>
+        <item name="Lime">#00FF00</item>
+        <item name="DarkGreen">#006400</item>
 	</string-array>
 
 </resources>
