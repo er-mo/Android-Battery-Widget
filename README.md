@@ -7,5 +7,5 @@ This app is placed on your Android device's home screen so you can quickly check
 
 ## Screenshots
 
-![screenshot1](http://ubuntuone.com/10n0wucfevaYYpFzvCxfw0)  
-![screenshot2](http://ubuntuone.com/1P9T9E0rcx9svqBeWHURm3)
+![screenshot1](http://ubuntuone.com/7ZoWRkxZLZ5Er3SqmixQ1y) 
+![screenshot2](http://ubuntuone.com/7S73CsJpvC1ShtIaen5bHE)
