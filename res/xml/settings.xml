@@ -8,13 +8,13 @@
 		<CheckBoxPreference
 			android:key="vibration_checkbox"
 			android:persistent="false"
-			android:summary="notify with vibration when buttery level really low"
+			android:summary="Notify with vibration when battery level low"
 			android:title="Vibration" >
 		</CheckBoxPreference>
 		<CheckBoxPreference
 			android:key="sound_checkbox"
 			android:persistent="false"
-			android:summary="notify with sound when buttery level really low"
+			android:summary="Notify with sound when buttery level low"
 			android:title="Sound" >
 		</CheckBoxPreference>
 	</PreferenceCategory>
@@ -25,7 +25,7 @@
 			android:key="colour_list"
 			android:title="Text Colour"
 			android:defaultValue="#FFFFFF"
-			android:summary="change the colour of the level"
+			android:summary="Change the colour of the level text"
 			android:entries="@array/textColourListEntries"
 			android:entryValues="@array/textColourListEntryValues" >
 		</ListPreference>	
