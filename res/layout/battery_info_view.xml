@@ -17,19 +17,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent" 
               android:layout_height="fill_parent"
-              android:paddingTop="40sp"
+              android:paddingTop="50sp"
               android:orientation="vertical" 
               android:gravity="center|top" >
       
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
+    android:id="@+id/infoViewLayout"
+    android:layout_width="270sp"
+    android:layout_height="370sp"
+    android:background="@drawable/info_view_background" >
     
     <TableLayout 
-        android:layout_width="280sp" 
-        android:layout_height="380sp" 
-        android:background="@drawable/info_view_background" >
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" >
        
         <LinearLayout
             android:layout_width="wrap_content"
@@ -122,27 +123,27 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="20sp" >
-			<Button
-			    android:id="@+id/summaryButton"
-			    android:layout_width="fill_parent"
-			    android:layout_height="wrap_content"
-			    android:textStyle="bold"
-			    android:textSize="16sp"
-			    android:text="@string/infoViewSummaryButton" />
-		</LinearLayout>
-		<LinearLayout
+            android:paddingTop="20sp" 
+            android:paddingLeft="10sp"
+            android:paddingRight="10sp" > 
+            <Button 
+                android:id="@+id/summaryButton"
+                android:background="@drawable/black_button"
+                style="@style/button_style"
+                android:text="@string/infoViewSummaryButton" />
+        </LinearLayout>
+        <LinearLayout 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="2sp" >
-			<Button
-			    android:id="@+id/settingsButton"
-			    android:layout_width="fill_parent"
-			    android:layout_height="wrap_content"
-			    android:textStyle="bold"
-			    android:textSize="16sp"
-			    android:text="@string/infoViewSettingsButton" />
-		</LinearLayout>
+            android:paddingTop="5sp" 
+            android:paddingLeft="10sp"
+            android:paddingRight="10sp" >
+            <Button 
+                android:id="@+id/settingsButton"
+                android:background="@drawable/black_button"
+                style="@style/button_style"
+                android:text="@string/infoViewSettingsButton" />
+        </LinearLayout>
 
 			
     </TableLayout>
