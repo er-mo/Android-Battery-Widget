@@ -40,6 +40,7 @@ public class SettingsManager extends PreferenceActivity implements Preference.On
 		super.onCreate(bundle);
 		
 		addPreferencesFromResource(R.xml.settings);
+		
 		buildSettings();
 	}
 
@@ -68,17 +69,19 @@ public class SettingsManager extends PreferenceActivity implements Preference.On
 		
 	}
 	
-	
+	/*
+	 * save state and update the widget
+	 * @see android.app.Activity#onPause()
+	 */
 	@Override 
-	public void onBackPressed(){
+	public void onPause(){
+		super.onPause();
 		
 		mSettings.setValue(Constants.VIBRATION_SETTINGS, mVibrationCheckBox.isChecked());
 		mSettings.setValue(Constants.SOUND_SETTINGS, mSoundCheckBox.isChecked());
 		mSettings.setValue(Constants.COLOUR_SETTINGS, mColourList.getValue());
 		
 		getApplicationContext().startService(new Intent(getApplicationContext(), BatteryUpdateService.class));
-		
-		super.onBackPressed();
 	}
 
 }
