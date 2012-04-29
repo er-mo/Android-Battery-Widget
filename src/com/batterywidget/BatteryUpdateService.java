@@ -39,6 +39,7 @@ public class BatteryUpdateService extends Service {
     private int  batteryLevel;
     private int  batteryStatus;
 
+    
     @Override
     public void onStart(Intent intent, int id){
  
@@ -98,7 +99,7 @@ public class BatteryUpdateService extends Service {
         widgetView.setViewVisibility(R.id.percent40, isRoundOf(40)? View.VISIBLE:View.INVISIBLE);
         widgetView.setViewVisibility(R.id.percent30, isRoundOf(30)? View.VISIBLE:View.INVISIBLE);
         widgetView.setViewVisibility(R.id.percent20, isRoundOf(20)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent10, batteryLevel <= 10? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent10, isRoundOf(10)? View.VISIBLE:View.INVISIBLE);
         widgetView.setViewVisibility(R.id.batterytext, View.VISIBLE);
         
         Preferences mSettings  =  new Preferences(Constants.BATTERY_SETTINGS, getApplicationContext());
