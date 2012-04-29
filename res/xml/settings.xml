@@ -14,7 +14,7 @@
 		<CheckBoxPreference
 			android:key="sound_checkbox"
 			android:persistent="false"
-			android:summary="Notify with sound when buttery level low"
+			android:summary="Notify with sound when battery level low"
 			android:title="Sound" >
 		</CheckBoxPreference>
 	</PreferenceCategory>
