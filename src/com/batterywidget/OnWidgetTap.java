@@ -19,7 +19,10 @@ package com.batterywidget;
 import com.batterywidget.Preferences.Preferences;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.os.Bundle;
 import android.view.View;
@@ -39,7 +42,7 @@ public class OnWidgetTap extends Activity implements OnClickListener{
     private TextView	mTemperatureView;
     private TextView	mTechnologyView;
     private TextView	mHealthView;
-
+    
     private Button		mSummaryButton;
     private Button		mSettingsButton;
     
@@ -63,32 +66,45 @@ public class OnWidgetTap extends Activity implements OnClickListener{
         mTemperatureView =  (TextView) findViewById(R.id.temperature);
         mTechnologyView  =  (TextView) findViewById(R.id.technology);
         mHealthView      =  (TextView) findViewById(R.id.health);
+        mSummaryButton   =  (Button) findViewById(R.id.summaryButton);
+        mSettingsButton  =  (Button) findViewById(R.id.settingsButton);
         
-        mSummaryButton    =  (Button) findViewById(R.id.summaryButton);
-        mSettingsButton	  =  (Button) findViewById(R.id.settingsButton);
+        registerReceiver();
         
-        updateBatteryInfoView();		
+    }
+    
 
+    @Override
+    public void onResume(){
+    	super.onResume();
+    	registerReceiver();
     }
     
     
-	@Override
-	public void onClick(View view) {
-		
-		switch (view.getId()) {
-		case R.id.summaryButton:
-			this.startActivity(new Intent(Constants.BATTERY_USAGE));
-			break;
-		case R.id.settingsButton:
-			this.startActivity(new Intent(getApplicationContext(), SettingsManager.class));
-			break;
-		default:
-			break;
-		}
-	}
+    @Override
+    public void onPause(){
+    	super.onPause();
+    	unregisterReceiver(batteryEventListener);
+    }
+    
+    
+    @Override
+    public void onClick(View view) {
+    	
+    	switch (view.getId()) {
+    	case R.id.summaryButton:
+    		this.startActivity(new Intent(Constants.BATTERY_USAGE));
+    		break;	
+    	case R.id.settingsButton:
+    		this.startActivity(new Intent(getApplicationContext(), SettingsManager.class));
+    		break;	
+    	default:
+    		break;	
+    	}	
+    }
 
 
-    public void updateBatteryInfoView(){
+    private void updateBatteryInfoView(){
     
         try {
 
@@ -175,6 +191,25 @@ public class OnWidgetTap extends Activity implements OnClickListener{
         temperature = temperature / 10;
         return temperature;
     }
+    
+    
+    private void registerReceiver(){
+    	
+    	IntentFilter filter = new IntentFilter();
+    	filter.addAction(Intent.ACTION_BATTERY_CHANGED);
+    	this.registerReceiver(batteryEventListener, filter);
+    	updateBatteryInfoView();
+    	
+    }
+    
+    
+    final private BroadcastReceiver batteryEventListener = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			if (intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED))
+				updateBatteryInfoView();
+		}
+	};
 
 }
 
