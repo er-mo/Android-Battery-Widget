@@ -17,7 +17,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent" 
               android:layout_height="fill_parent"
-              android:paddingTop="50sp"
+              android:paddingTop="30sp"
               android:orientation="vertical" 
               android:gravity="center|top" >
       
@@ -25,7 +25,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/infoViewLayout"
     android:layout_width="270sp"
-    android:layout_height="370sp"
+    android:layout_height="410sp"
     android:background="@drawable/info_view_background" >
     
     <TableLayout 
@@ -123,7 +123,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="20sp" 
+            android:paddingTop="15sp" 
             android:paddingLeft="10sp"
             android:paddingRight="10sp" > 
             <Button 
@@ -135,16 +135,27 @@
         <LinearLayout 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="5sp" 
+            android:paddingTop="3sp" 
             android:paddingLeft="10sp"
             android:paddingRight="10sp" >
             <Button 
+                android:id="@+id/historyButton"
+                android:background="@drawable/black_button"
+                style="@style/button_style"
+                android:text="@string/infoViewHistoryButton" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="3sp" 
+            android:paddingLeft="10sp"
+            android:paddingRight="10sp" >
+            <Button
                 android:id="@+id/settingsButton"
                 android:background="@drawable/black_button"
                 style="@style/button_style"
                 android:text="@string/infoViewSettingsButton" />
         </LinearLayout>
-
 			
     </TableLayout>
 </RelativeLayout>
