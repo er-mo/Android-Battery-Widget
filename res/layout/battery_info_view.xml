@@ -17,7 +17,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent" 
               android:layout_height="fill_parent"
-              android:paddingTop="30sp"
+              android:paddingTop="40sp"
               android:orientation="vertical" 
               android:gravity="center|top" >
       
@@ -25,7 +25,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/infoViewLayout"
     android:layout_width="270sp"
-    android:layout_height="410sp"
+    android:layout_height="wrap_content"
+    android:paddingBottom="13sp"
     android:background="@drawable/info_view_background" >
     
     <TableLayout 
