@@ -16,7 +16,7 @@
 
 package com.batterywidget;
 
-import com.batterywidget.Preferences.Preferences;
+import com.batterywidget.storage.Preferences;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -45,6 +45,7 @@ public class OnWidgetTap extends Activity implements OnClickListener{
     
     private Button		mSummaryButton;
     private Button		mSettingsButton;
+    private Button      mHistoryButton;
     
     private Preferences 	mBatteryInfo;
 
@@ -68,6 +69,7 @@ public class OnWidgetTap extends Activity implements OnClickListener{
         mHealthView      =  (TextView) findViewById(R.id.health);
         mSummaryButton   =  (Button) findViewById(R.id.summaryButton);
         mSettingsButton  =  (Button) findViewById(R.id.settingsButton);
+        mHistoryButton   =  (Button) findViewById(R.id.historyButton);
         
         registerReceiver();
         
@@ -95,9 +97,12 @@ public class OnWidgetTap extends Activity implements OnClickListener{
     	case R.id.summaryButton:
     		this.startActivity(new Intent(Constants.BATTERY_USAGE));
     		break;	
+    	case R.id.historyButton:
+    		this.startActivity(new Intent(getApplicationContext(), HistoryViewManager.class));
+    		break;
     	case R.id.settingsButton:
     		this.startActivity(new Intent(getApplicationContext(), SettingsManager.class));
-    		break;	
+    		break;
     	default:
     		break;	
     	}	
@@ -126,6 +131,7 @@ public class OnWidgetTap extends Activity implements OnClickListener{
 
             mSummaryButton.setOnClickListener(this);
             mSettingsButton.setOnClickListener(this);
+            mHistoryButton.setOnClickListener(this);
             
         }catch (Exception e) {}
 
