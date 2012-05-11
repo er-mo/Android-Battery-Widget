@@ -16,7 +16,7 @@
 
 package com.batterywidget;
 
-import com.batterywidget.Preferences.Preferences;
+import com.batterywidget.storage.Preferences;
 
 import android.content.Intent;
 import android.os.Bundle;
