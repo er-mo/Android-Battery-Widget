@@ -40,7 +40,12 @@
     <string name="infoViewSummaryButton">Summary</string>
     <string name="infoViewSettingsButton">Settings</string>
     <string name="infoViewPreferencesButton">Preferences</string>
+    <string name="infoViewHistoryButton">History</string>
     
     <string name="settingsManager">Battery Widget Settings</string>
+    <string name="historyViewManager">Battery History Details</string>
+    
+    <string name="availableData">Charge History</string>
+    <string name="notAvailableDataYet">No history data available</string>
     
 </resources>

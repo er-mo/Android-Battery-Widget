@@ -34,14 +34,23 @@ public class Constants {
 	
 	public final static String BATTERY_USAGE = "android.intent.action.POWER_USAGE_SUMMARY";
 	
-	public final static String VIBRATION_SETTINGS  =  "vibration_settings";
-	public final static String SOUND_SETTINGS      =  "sound_settings"; 
-	public final static String COLOUR_SETTINGS     =  "colour_settings";
-	
+	public final static String VIBRATION_SETTINGS      =  "vibration_settings";
+	public final static String SOUND_SETTINGS          =  "sound_settings"; 
+	public final static String COLOUR_SETTINGS         =  "colour_settings";
 	public final static String VIBRATION_CHECKBOX_KEY  =  "vibration_checkbox";
 	public final static String SOUND_CHECKBOX_KEY      =  "sound_checkbox";
 	public final static String COLOUR_LIST_KEY         =  "colour_list";
 	
 	public final static String DEFAULT_COLOUR    =  "#FFFFFF";
-
+	
+	public static final String DB_NAME   =  "batteryWidget.db";
+	public static final String DB_TABLE  =  "batteryWidgetEntryTable";
+	public static final String KEY_ID    =  "_id";
+	public static final String KEY_TIME  =  "time";
+	public static final String KEY_LEVEL =  "level";
+	
+	public static final String XAxisTitle = "Date";
+	public static final String YAxisTitle = "Charge level";
+	public static final String DateFormat = "dd MMM";
+	
 }

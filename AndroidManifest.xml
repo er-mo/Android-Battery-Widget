@@ -48,9 +48,18 @@
         </activity>
         
         <activity
+            android:name=".HistoryViewManager"
+            android:label="@string/historyViewManager" 
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <activity
             android:name=".SettingsManager"
             android:label="@string/settingsManager" >
         </activity>
+       
+
+        <activity android:name="org.achartengine.GraphicalActivity" />
         
     </application>
 </manifest>
