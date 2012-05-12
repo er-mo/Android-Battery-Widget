@@ -80,7 +80,8 @@ public class HistoryViewManager extends Activity {
 			
 		}
 		else{
-			titleTextView.setText(this.getString(R.string.notAvailableDataYet));	
+			titleTextView.setText(this.getString(R.string.notAvailableDataYet));
+			db.close();
 		}
 		
 	}
