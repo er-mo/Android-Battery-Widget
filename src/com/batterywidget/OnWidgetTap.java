@@ -43,8 +43,8 @@ public class OnWidgetTap extends Activity implements OnClickListener{
     private TextView	mTechnologyView;
     private TextView	mHealthView;
     
-    private Button		mSummaryButton;
-    private Button		mSettingsButton;
+    private Button      mSummaryButton;
+    private Button      mSettingsButton;
     private Button      mHistoryButton;
     
     private Preferences 	mBatteryInfo;
@@ -71,8 +71,9 @@ public class OnWidgetTap extends Activity implements OnClickListener{
         mSettingsButton  =  (Button) findViewById(R.id.settingsButton);
         mHistoryButton   =  (Button) findViewById(R.id.historyButton);
         
-        registerReceiver();
-        
+        mSummaryButton.setOnClickListener(this);
+        mSettingsButton.setOnClickListener(this);
+        mHistoryButton.setOnClickListener(this);    
     }
     
 
@@ -128,13 +129,8 @@ public class OnWidgetTap extends Activity implements OnClickListener{
             mTechnologyView.setText(mBatteryInfo.getValue(Constants.TECHNOLOGY,"")+
                                         this.getString(R.string.Empty));
             mHealthView.setText(getBatteryHealth());
-
-            mSummaryButton.setOnClickListener(this);
-            mSettingsButton.setOnClickListener(this);
-            mHistoryButton.setOnClickListener(this);
             
         }catch (Exception e) {}
-
     }
 
 
@@ -193,6 +189,7 @@ public class OnWidgetTap extends Activity implements OnClickListener{
 
     
     private int getBatteryTemperature(){
+    	
         int temperature = mBatteryInfo.getValue(Constants.TEMPERATURE, 0);
         temperature = temperature / 10;
         return temperature;
@@ -205,7 +202,6 @@ public class OnWidgetTap extends Activity implements OnClickListener{
     	filter.addAction(Intent.ACTION_BATTERY_CHANGED);
     	this.registerReceiver(batteryEventListener, filter);
     	updateBatteryInfoView();
-    	
     }
     
     
