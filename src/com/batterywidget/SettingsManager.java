@@ -31,47 +31,50 @@ public class SettingsManager extends PreferenceActivity implements Preference.On
 	private CheckBoxPreference   mVibrationCheckBox;
 	private CheckBoxPreference   mSoundCheckBox;
 	private ListPreference	     mColourList;
-	
 	private Preferences          mSettings;
 	
+	private boolean              mListPrefChanged = false;
+	
+	/*
+	 */
 	@Override
 	protected void onCreate(Bundle bundle){
-		
 		super.onCreate(bundle);
 		
 		addPreferencesFromResource(R.xml.settings);
 		
-		buildSettings();
+		mVibrationCheckBox = (CheckBoxPreference) findPreference(Constants.VIBRATION_CHECKBOX_KEY);
+		mSoundCheckBox     = (CheckBoxPreference) findPreference(Constants.SOUND_CHECKBOX_KEY);
+		mColourList        = (ListPreference)     findPreference(Constants.COLOUR_LIST_KEY);
 	}
 
-	
+	/*
+	 */
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object value) {
 		
-		if(preference.equals(mColourList))
+		if(preference.equals(mColourList)){
 			mSettings.setValue(Constants.COLOUR_SETTINGS, mColourList.getValue());
+			mListPrefChanged = true;
+		}
 		
 		return true;
 	}
 	
-	
-	private void buildSettings(){
-		
-		mVibrationCheckBox = (CheckBoxPreference) findPreference(Constants.VIBRATION_CHECKBOX_KEY);
-		mSoundCheckBox     = (CheckBoxPreference) findPreference(Constants.SOUND_CHECKBOX_KEY);
-		mColourList        = (ListPreference)     findPreference(Constants.COLOUR_LIST_KEY);
+	/*
+	 */
+	@Override
+	public void onResume(){
+		super.onResume();
 		
 		mSettings  =  new Preferences(Constants.BATTERY_SETTINGS, this);
 		
 		mVibrationCheckBox.setChecked(mSettings.getValue(Constants.VIBRATION_SETTINGS, false));
 		mSoundCheckBox.setChecked(mSettings.getValue(Constants.SOUND_SETTINGS, false));
 		mColourList.setOnPreferenceChangeListener(this);
-		
 	}
 	
 	/*
-	 * save state and update the widget
-	 * @see android.app.Activity#onPause()
 	 */
 	@Override 
 	public void onPause(){
@@ -81,9 +84,9 @@ public class SettingsManager extends PreferenceActivity implements Preference.On
 		mSettings.setValue(Constants.SOUND_SETTINGS, mSoundCheckBox.isChecked());
 		mSettings.setValue(Constants.COLOUR_SETTINGS, mColourList.getValue());
 		
-		getApplicationContext().startService(new Intent(getApplicationContext(), BatteryUpdateService.class));
+		if (mListPrefChanged)
+			getApplicationContext().startService(new Intent(getApplicationContext(), 
+			                                             BatteryUpdateService.class));
 	}
-
 }
-
 
