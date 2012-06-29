@@ -91,7 +91,6 @@ public class OnWidgetTap extends Activity implements OnClickListener{
     }
     
     
-    @Override
     public void onClick(View view) {
     	
     	switch (view.getId()) {

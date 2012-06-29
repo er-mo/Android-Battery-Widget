@@ -50,7 +50,6 @@ public class SettingsManager extends PreferenceActivity implements Preference.On
 
 	/*
 	 */
-	@Override
 	public boolean onPreferenceChange(Preference preference, Object value) {
 		
 		if(preference.equals(mColourList)){
