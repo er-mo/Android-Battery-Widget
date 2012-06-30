@@ -17,16 +17,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent" 
               android:layout_height="fill_parent"
-              android:paddingTop="40sp"
-              android:orientation="vertical" 
+              android:paddingTop="40dp"
+              android:paddingBottom="40dp"
+              android:paddingLeft="22dp"
+              android:paddingRight="22dp"
+              android:orientation="vertical"
               android:gravity="center|top" >
       
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/infoViewLayout"
-    android:layout_width="270sp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingBottom="13sp"
     android:background="@drawable/info_view_background" >
     
     <TableLayout 
@@ -36,19 +36,19 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" 
-            android:paddingTop="10sp"
-            android:paddingBottom="15sp" >
+            android:paddingTop="10dp"
+            android:paddingBottom="15dp" >
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="30sp"
-                android:layout_marginRight="15sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="15dp"
                 android:src="@drawable/info_view_picture" >
             </ImageView>
     		<TextView
     		    android:layout_width="fill_parent"
     		    android:layout_height="35dp"
-    		    android:textSize="25sp"
+    		    android:textSize="25dp"
     		    android:textStyle="bold"
     		    android:typeface="serif" 
     		    android:textColor="@color/White"
@@ -124,9 +124,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="15sp" 
-            android:paddingLeft="10sp"
-            android:paddingRight="10sp" > 
+            android:paddingTop="15dp" 
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" > 
             <Button 
                 android:id="@+id/summaryButton"
                 android:background="@drawable/black_button"
@@ -136,9 +136,9 @@
         <LinearLayout 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="3sp" 
-            android:paddingLeft="10sp"
-            android:paddingRight="10sp" >
+            android:paddingTop="3dp" 
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
             <Button 
                 android:id="@+id/historyButton"
                 android:background="@drawable/black_button"
@@ -148,9 +148,10 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="3sp" 
-            android:paddingLeft="10sp"
-            android:paddingRight="10sp" >
+            android:paddingTop="3dp"
+            android:paddingBottom="10dp" 
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
             <Button
                 android:id="@+id/settingsButton"
                 android:background="@drawable/black_button"
