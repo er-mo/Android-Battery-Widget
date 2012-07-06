@@ -75,7 +75,7 @@ public class BatteryReceiver extends BroadcastReceiver {
 	        		new Thread(){
 	        			@Override
 	        			public void run(){
-	        				vibrator.vibrate(2000);
+	        				vibrator.vibrate(1000);
 	        			}
 	        		}.start();
 	        	}
