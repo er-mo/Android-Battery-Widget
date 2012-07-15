@@ -16,18 +16,19 @@
 
 package com.batterywidget;
 
-import com.batterywidget.storage.Preferences;
+import com.batterywidget.preferences.*;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.drawable.ColorDrawable;
 import android.os.BatteryManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -54,8 +55,7 @@ public class OnWidgetTap extends Activity implements OnClickListener{
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
-                             WindowManager.LayoutParams.FLAG_BLUR_BEHIND);  
+        getWindow().setBackgroundDrawable(new ColorDrawable(0x7f000000));
 
         setContentView(R.layout.battery_info_view);
 
@@ -102,6 +102,11 @@ public class OnWidgetTap extends Activity implements OnClickListener{
     		break;
     	case R.id.settingsButton:
     		this.startActivity(new Intent(getApplicationContext(), SettingsManager.class));
+    		//if (Build.VERSION.SDK_INT < 11) {
+    		//	this.startActivity(new Intent(getApplicationContext(), PreferenceActivityLC.class));
+    		//} else {
+    		//	this.startActivity(new Intent(getApplicationContext(), PreferenceActivityHC.class));
+    		//}
     		break;
     	default:
     		break;	

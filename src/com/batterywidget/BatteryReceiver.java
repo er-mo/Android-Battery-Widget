@@ -17,7 +17,7 @@
 package com.batterywidget;
 
 import com.batterywidget.storage.SQLiteDataBase;
-import com.batterywidget.storage.Preferences;
+import com.batterywidget.preferences.Preferences;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
