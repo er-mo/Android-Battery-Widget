@@ -3,32 +3,51 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"	
 	android:title="@string/settingsManager" >
 	
+	<ListPreference
+	    android:key="widget_theme_list"
+	    android:title="Widget Theme"
+	    android:enabled="false"
+	    android:summary="Not available yet" >
+	</ListPreference>	
+	
+	<ListPreference
+	    android:key="text_colour_list"
+	    android:title="Text Colour"
+	    android:defaultValue="#FFFFFF"
+	    android:summary="Change the colour of the level text"
+	    android:entries="@array/textColourListEntries"
+	    android:entryValues="@array/textColourListEntryValues" >
+	</ListPreference>
+	
 	<PreferenceCategory
-		android:title="Low Battery Notification" >
+		android:title="Notifications" >
+		<CheckBoxPreference
+			android:key="notify_icon_checkbox"
+			android:persistent="false"
+			android:title="Notification Icon" >
+		</CheckBoxPreference>
+		<ListPreference
+		    android:key="notify_icon_list"
+		    android:title="Notification Style"
+		    android:enabled="false"
+		    android:summary="Not available yet" >
+		</ListPreference>	
+	</PreferenceCategory>
+		
+	<PreferenceCategory
+	    android:title="Alerts" >
 		<CheckBoxPreference
 			android:key="vibration_checkbox"
 			android:persistent="false"
-			android:summary="Notify with vibration when battery level low"
-			android:title="Vibration" >
+			android:title="Vibration"
+			android:summary="Notify with vibration when battery level low" >
 		</CheckBoxPreference>
 		<CheckBoxPreference
 			android:key="sound_checkbox"
 			android:persistent="false"
-			android:summary="Notify with sound when battery level low"
-			android:title="Sound" >
+			android:title="Sound"
+			android:summary="Notify with sound when battery level low" >
 		</CheckBoxPreference>
 	</PreferenceCategory>
 	
-	<PreferenceCategory
-		android:title="Level Text Colour" >
-		<ListPreference
-			android:key="colour_list"
-			android:title="Text Colour"
-			android:defaultValue="#FFFFFF"
-			android:summary="Change the colour of the level text"
-			android:entries="@array/textColourListEntries"
-			android:entryValues="@array/textColourListEntryValues" >
-		</ListPreference>	
-	</PreferenceCategory>
-
 </PreferenceScreen>

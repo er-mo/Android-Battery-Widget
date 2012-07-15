@@ -34,12 +34,19 @@ public class Constants {
 	
 	public final static String BATTERY_USAGE = "android.intent.action.POWER_USAGE_SUMMARY";
 	
-	public final static String VIBRATION_SETTINGS      =  "vibration_settings";
-	public final static String SOUND_SETTINGS          =  "sound_settings"; 
-	public final static String COLOUR_SETTINGS         =  "colour_settings";
-	public final static String VIBRATION_CHECKBOX_KEY  =  "vibration_checkbox";
-	public final static String SOUND_CHECKBOX_KEY      =  "sound_checkbox";
-	public final static String COLOUR_LIST_KEY         =  "colour_list";
+	public final static String NOTIFY_ICON_SETTINGS     =  "notify_icon_settings";
+	public final static String VIBRATION_SETTINGS       =  "vibration_settings";
+	public final static String SOUND_SETTINGS           =  "sound_settings";
+	public final static String WIDGET_THEME_SETTINGS    =  "widget_theme_settings";
+	public final static String TEXT_COLOUR_SETTINGS     =  "colour_settings";
+	public final static String NOTIFY_STYLE_SETTINGS    =  "notify_style_settings";
+	
+	public final static String NOTIFY_ICON_CHECKBOX_KEY =  "notify_icon_checkbox";
+	public final static String VIBRATION_CHECKBOX_KEY   =  "vibration_checkbox";
+	public final static String SOUND_CHECKBOX_KEY       =  "sound_checkbox";
+	public final static String WIDGET_THEME_KEY         =  "widget_theme_list";
+	public final static String TEXT_COLOUR_KEY          =  "text_colour_list";
+	public final static String NOTIFY_STYLE_KEY         =  "notify_icon_list";
 	
 	public final static String DEFAULT_COLOUR    =  "#FFFFFF";
 	
