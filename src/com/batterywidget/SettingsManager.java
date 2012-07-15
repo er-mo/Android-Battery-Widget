@@ -16,7 +16,7 @@
 
 package com.batterywidget;
 
-import com.batterywidget.storage.Preferences;
+import com.batterywidget.preferences.Preferences;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,7 +45,7 @@ public class SettingsManager extends PreferenceActivity implements Preference.On
 		
 		mVibrationCheckBox = (CheckBoxPreference) findPreference(Constants.VIBRATION_CHECKBOX_KEY);
 		mSoundCheckBox     = (CheckBoxPreference) findPreference(Constants.SOUND_CHECKBOX_KEY);
-		mColourList        = (ListPreference)     findPreference(Constants.COLOUR_LIST_KEY);
+		mColourList        = (ListPreference)     findPreference(Constants.TEXT_COLOUR_KEY);
 	}
 
 	/*
@@ -53,7 +53,7 @@ public class SettingsManager extends PreferenceActivity implements Preference.On
 	public boolean onPreferenceChange(Preference preference, Object value) {
 		
 		if(preference.equals(mColourList)){
-			mSettings.setValue(Constants.COLOUR_SETTINGS, mColourList.getValue());
+			mSettings.setValue(Constants.TEXT_COLOUR_SETTINGS, mColourList.getValue());
 			mListPrefChanged = true;
 		}
 		
@@ -81,7 +81,7 @@ public class SettingsManager extends PreferenceActivity implements Preference.On
 		
 		mSettings.setValue(Constants.VIBRATION_SETTINGS, mVibrationCheckBox.isChecked());
 		mSettings.setValue(Constants.SOUND_SETTINGS, mSoundCheckBox.isChecked());
-		mSettings.setValue(Constants.COLOUR_SETTINGS, mColourList.getValue());
+		mSettings.setValue(Constants.TEXT_COLOUR_SETTINGS, mColourList.getValue());
 		
 		if (mListPrefChanged)
 			getApplicationContext().startService(new Intent(getApplicationContext(), 

@@ -105,7 +105,7 @@ public class BatteryUpdateService extends Service {
         Preferences mSettings  =  new Preferences(Constants.BATTERY_SETTINGS, getApplicationContext());
         
         widgetView.setTextColor(R.id.batterytext, Color.parseColor(mSettings.getValue
-                                               (Constants.COLOUR_SETTINGS, Constants.DEFAULT_COLOUR)));
+                                               (Constants.TEXT_COLOUR_SETTINGS, Constants.DEFAULT_COLOUR)));
         widgetView.setTextViewText(R.id.batterytext, String.valueOf(batteryLevel)+"%");
 
         
