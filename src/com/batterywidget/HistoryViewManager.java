@@ -23,7 +23,6 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Paint.Align;
 import android.os.Bundle;
-import android.view.ViewGroup;
 import android.widget.*;
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
@@ -125,8 +124,7 @@ public class HistoryViewManager extends Activity {
 			
 			chartView = ChartFactory.getTimeChartView(this, dataSet, renderer, Constants.DateFormat);
 			
-			chartContainer.addView(chartView, new ViewGroup.LayoutParams(
-					ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT));	
+			chartContainer.addView(chartView);
 		}
 		
 	}
