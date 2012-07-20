@@ -21,6 +21,7 @@ public class Constants {
 	
 	public final static String BATTERY_INFO	     =  "BATTERY_INFO_WIDGET";
 	public final static String BATTERY_SETTINGS  =  "BATTERY_SETTINGS";
+	public final static String APP_WIDGET_IDS    =  "AppWidgetIds";
 	
 	public final static String STATUS       =  "status";	
 	public final static String PLUG         =  "plugged";

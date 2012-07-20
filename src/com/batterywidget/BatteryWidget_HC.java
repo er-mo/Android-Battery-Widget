@@ -22,7 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 
 
-public class BatteryWidget extends AppWidgetProvider {
+public class BatteryWidget_HC extends AppWidgetProvider {
 		
 	@Override
 	public void onEnabled(Context context){

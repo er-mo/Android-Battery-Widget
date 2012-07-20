@@ -33,22 +33,20 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class OnWidgetTap extends Activity implements OnClickListener{
+public class BatteryWidgetActivity extends Activity implements OnClickListener{
 	
-    private TextView 	mStatusView;
-    private TextView	mPlugView;
-    private TextView 	mLevelView;
-    private TextView 	mScaleView;
-    private TextView	mVoltageView;
-    private TextView	mTemperatureView;
-    private TextView	mTechnologyView;
-    private TextView	mHealthView;
-    
-    private Button      mSummaryButton;
-    private Button      mSettingsButton;
-    private Button      mHistoryButton;
-    
-    private Preferences 	mBatteryInfo;
+    private TextView      mStatusView;
+    private TextView      mPlugView;
+    private TextView      mLevelView;
+    private TextView      mScaleView;
+    private TextView      mVoltageView;
+    private TextView      mTemperatureView;
+    private TextView      mTechnologyView;
+    private TextView      mHealthView;
+    private Button        mSummaryButton;
+    private Button        mSettingsButton;
+    private Button        mHistoryButton;
+    private Preferences   mBatteryInfo;
 
     
     @Override
@@ -79,14 +77,14 @@ public class OnWidgetTap extends Activity implements OnClickListener{
 
     @Override
     public void onResume(){
-    	super.onResume();
+    	super.onResume();	
     	registerReceiver();
     }
     
     
     @Override
     public void onPause(){
-    	super.onPause();
+    	super.onPause();	
     	unregisterReceiver(batteryEventListener);
     }
     
@@ -116,8 +114,8 @@ public class OnWidgetTap extends Activity implements OnClickListener{
 
     private void updateBatteryInfoView(){
     
-        try {
-
+        try 
+        {
             mBatteryInfo = new Preferences(Constants.BATTERY_INFO, getApplicationContext());
 
             mStatusView.setText(getBatteryStatus());

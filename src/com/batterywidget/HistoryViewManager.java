@@ -61,23 +61,24 @@ public class HistoryViewManager extends Activity {
 	public void onResume(){
 		super.onResume();
 		
-		if (db.availableEntries()){
-			
+		if (db.availableEntries())
+		{	
 			titleTextView.setText(this.getString(R.string.availableData));
 			chartInit();
 			
-			new Thread( new Runnable (){
-				public void run() {
-					try {	
-					
-						chartDraw();
-						
+			new Thread( new Runnable ()
+			{
+				public void run() 
+				{
+					try 
+					{	
+						chartDraw();	
 					} catch (Exception e) {}	
 				}	
 			}).start();
-			
 		}
-		else{
+		else
+		{
 			titleTextView.setText(this.getString(R.string.notAvailableDataYet));
 			db.close();
 		}
@@ -95,7 +96,8 @@ public class HistoryViewManager extends Activity {
 	
 	
 	public void chartInit() {
-		if (chartView == null) {
+		if (chartView == null) 
+		{
 			renderer = new XYMultipleSeriesRenderer();
 			renderer.setMargins(new int[]{30, 35, 30, 10}); //{top, left, bottom, right};
 			renderer.setXTitle(Constants.XAxisTitle);
@@ -126,7 +128,6 @@ public class HistoryViewManager extends Activity {
 			
 			chartContainer.addView(chartView);
 		}
-		
 	}
 	
 	
@@ -144,7 +145,8 @@ public class HistoryViewManager extends Activity {
 				time  = cursor.getLong(SQLiteDataBase._TIME);
 				level = cursor.getInt(SQLiteDataBase._LEVEL);
 				skip = level == oldLevel;
-				if (!skip) {
+				if (!skip) 
+				{
 					xYSeries.add(time, level);
 					oldLevel = level;			
 				}	
@@ -157,7 +159,6 @@ public class HistoryViewManager extends Activity {
 			xYSeries.add(time, oldLevel);
 		
 		chartView.repaint();
-		
 	}
     
 }

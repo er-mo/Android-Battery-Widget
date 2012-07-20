@@ -21,7 +21,6 @@ import com.batterywidget.preferences.Preferences;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
@@ -34,11 +33,10 @@ import android.widget.RemoteViews;
 public class BatteryUpdateService extends Service {
 
     private BatteryReceiver  mBatteryReceiver = null;
-    private IntentFilter     mIntentFilter;
-
-    private int  batteryLevel;
-    private int  batteryStatus;
-
+    
+    private int level;
+    private int status;
+    
     
     @Override
     public void onStart(Intent intent, int id){
@@ -46,20 +44,22 @@ public class BatteryUpdateService extends Service {
         if (mBatteryReceiver == null)
             registerNewReceiver();
 
-        Preferences mBatteryInfo  = new Preferences(Constants.BATTERY_INFO, this);
+        AppWidgetManager manager = AppWidgetManager.getInstance(this);
         
-        batteryLevel   =  mBatteryInfo.getValue(Constants.LEVEL, 0);
-        batteryStatus  =  mBatteryInfo.getValue(Constants.STATUS, 
-                                            BatteryManager.BATTERY_STATUS_UNKNOWN);
-
-        RemoteViews widgetView = getWidgetRemoteView();
-        ComponentName widgetComponent = new ComponentName(this, BatteryWidget.class);
-
-        if(widgetView != null && widgetComponent != null){
-            AppWidgetManager manager = AppWidgetManager.getInstance(this);
-            if(manager != null)
-                manager.updateAppWidget(widgetComponent, widgetView);
+        int[] widgetIds = intent.getIntArrayExtra(Constants.APP_WIDGET_IDS);
+        
+        if ((widgetIds != null) && (manager != null))
+        {
+        	for (int widget : widgetIds)
+        	{
+        		RemoteViews widgetView = getWidgetRemoteView();
+        		if (widgetView != null)
+        		{
+        			manager.updateAppWidget(widget, widgetView);
+        		}
+        	}
         }
+        
     }
 
 
@@ -77,58 +77,63 @@ public class BatteryUpdateService extends Service {
 
 
     private void registerNewReceiver(){
-        mBatteryReceiver = new BatteryReceiver();
-        mIntentFilter 	 = new IntentFilter();
+    	
+        IntentFilter mIntentFilter 	= new IntentFilter();
         mIntentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
         mIntentFilter.addAction(Intent.ACTION_BATTERY_LOW);
+        
+        mBatteryReceiver = new BatteryReceiver();
         registerReceiver(mBatteryReceiver, mIntentFilter);
     }
 
 
     private RemoteViews getWidgetRemoteView(){
 
+        Preferences prefSettings     =  new Preferences(Constants.BATTERY_SETTINGS, this);
+        Preferences prefBatteryInfo  =  new Preferences(Constants.BATTERY_INFO, this);
+
+        level        =  prefBatteryInfo.getValue(Constants.LEVEL, 0);
+        status       =  prefBatteryInfo.getValue(Constants.STATUS, 0);
+        
+        String  color   =  prefSettings.getValue(Constants.TEXT_COLOUR_SETTINGS, Constants.DEFAULT_COLOUR);
+        boolean charge  =  status == BatteryManager.BATTERY_STATUS_CHARGING;
+
+        /**/
         RemoteViews widgetView = new RemoteViews(this.getPackageName(), R.layout.widget_view);
+        
         widgetView.setImageViewResource(R.id.battery_view, R.drawable.battery);
-
-        widgetView.setViewVisibility(R.id.percent100, isRoundOf(100)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent90, isRoundOf(90)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent80, isRoundOf(80)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent70, isRoundOf(70)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent60, isRoundOf(60)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent50, isRoundOf(50)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent40, isRoundOf(40)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent30, isRoundOf(30)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent20, isRoundOf(20)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent10, isRoundOf(10)? View.VISIBLE:View.INVISIBLE);
+        
+        widgetView.setViewVisibility(R.id.percent100, round(100)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent90, round(90)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent80, round(80)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent70, round(70)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent60, round(60)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent50, round(50)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent40, round(40)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent30, round(30)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent20, round(20)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent10, round(10)? View.VISIBLE:View.INVISIBLE);
+        
         widgetView.setViewVisibility(R.id.batterytext, View.VISIBLE);
+        widgetView.setTextColor(R.id.batterytext, Color.parseColor(color));
+        widgetView.setTextViewText(R.id.batterytext, String.valueOf(level)+"%");
+        widgetView.setViewVisibility(R.id.charge_view, charge? View.VISIBLE:View.INVISIBLE);
         
-        Preferences mSettings  =  new Preferences(Constants.BATTERY_SETTINGS, getApplicationContext());
-        
-        widgetView.setTextColor(R.id.batterytext, Color.parseColor(mSettings.getValue
-                                               (Constants.TEXT_COLOUR_SETTINGS, Constants.DEFAULT_COLOUR)));
-        widgetView.setTextViewText(R.id.batterytext, String.valueOf(batteryLevel)+"%");
-
-        
-        widgetView.setViewVisibility(R.id.charge_view, batteryStatus == BatteryManager.BATTERY_STATUS_CHARGING? 
-                                                                                 View.VISIBLE:View.INVISIBLE);
-        
-        PendingIntent mPendingIntent = PendingIntent.getActivity(this, 0, 
-                                                 new Intent(this, OnWidgetTap.class), 0);
-        widgetView.setOnClickPendingIntent(R.id.widget_view, mPendingIntent);
+        /***/
+        Intent intent = new Intent(this, BatteryWidgetActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        widgetView.setOnClickPendingIntent(R.id.widget_view, pendingIntent);
 
         return widgetView;
     }
     
 
-    private boolean isRoundOf(int percent){
+    private boolean round(int percent){
         int minus = percent - 10;
-        if (batteryLevel <= percent && batteryLevel > minus)
+        if (level <= percent && level > minus)
             return true;
         else
             return false;
     }
     
 }
-
-
-
