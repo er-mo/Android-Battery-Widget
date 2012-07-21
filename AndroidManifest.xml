@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.batterywidget"
-    android:versionCode="1225"
-    android:versionName="1.1.0" >
+    android:versionCode="1333"
+    android:versionName="1.2.1" >
 
     <uses-sdk 
         android:targetSdkVersion="15"
@@ -19,7 +19,8 @@
         <receiver 
             android:name=".BatteryWidget_HC" 
             android:label="@string/app_name"
-            android:enabled="@bool/versionHoneyComb">
+            android:exported="false"
+            android:enabled="@bool/highVersion" >
             <intent-filter>
                  <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -29,7 +30,8 @@
         <receiver
             android:name=".BatteryWidget" 
             android:label="@string/app_name"
-            android:enabled="@bool/versionHoneyComb">
+            android:exported="false" 
+            android:enabled="@bool/lowVersion" >
             <intent-filter>
                  <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -51,7 +53,8 @@
             
         <activity 
             android:name=".BatteryWidgetActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="false"
+            android:theme="@style/activity_style"
             android:configChanges="orientation|keyboardHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />                                                                                             
@@ -68,7 +71,6 @@
             android:name=".SettingsManager"
             android:label="@string/settingsManager" >
         </activity>
-       
 
         <activity android:name="org.achartengine.GraphicalActivity" />
         

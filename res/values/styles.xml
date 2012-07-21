@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     
     <style name="style_table_1">
         <item name="android:layout_width">fill_parent</item>
@@ -30,7 +30,17 @@
         <item name="android:shadowColor">#000000</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
-        <item name="android:shadowRadius">2</item>
-</style>
+        <item name="android:shadowRadius">2</item>   
+    </style>
 
+    <style name="activity_style" parent="@android:style/Theme.Translucent.NoTitleBar" >
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowAnimationStyle">@style/animation_style</item>:
+    </style>
+    
+    <style name="animation_style" parent="@android:style/Animation.Dialog"> 
+        <item name="android:windowEnterAnimation">@anim/grow_from_middle</item>
+        <item name="android:windowExitAnimation">@anim/shrink_to_middle</item>
+	</style> 
+        
 </resources>
