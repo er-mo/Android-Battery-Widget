@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen                                                                                                                                        
+	xmlns:android="http://schemas.android.com/apk/res/android" >
+	
+    <PreferenceCategory
+        android:title="Widget" >
+		<ListPreference
+		    android:key="widget_theme_list"
+		    android:title="Widget Theme"
+		    android:summary=""
+		    android:entries="@array/widgetThemeEntries"
+		    android:entryValues="@array/widgetThemeEntryValues" >
+		</ListPreference>
+		
+		<ListPreference
+		    android:key="text_colour_list"
+		    android:title="Text Colour"
+		    android:defaultValue="#FFFFFF"
+		    android:summary="Change the colour of the level text"
+		    android:entries="@array/textColourListEntries"
+		    android:entryValues="@array/textColourListEntryValues" >
+		</ListPreference>
+		
+		<ListPreference
+		    android:key="temperature_list"
+		    android:title="Temperature"
+		    android:defaultValue="\u00B0 C"
+		    android:summary="Change temperature units"
+		    android:entries="@array/temperatureEntries"
+		    android:entryValues="@array/temperatureEntryValues" >
+		</ListPreference>
+	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:title="Notifications" >
+		<CheckBoxPreference
+			android:key="notify_icon_checkbox"
+			android:persistent="false"
+			android:summary="Show charge level in notification bar"
+			android:title="Notification Icon" >
+		</CheckBoxPreference>
+		
+		<CheckBoxPreference
+			android:key="vibration_checkbox"
+			android:persistent="false"
+			android:title="Vibration"
+			android:summary="Notify with vibration when battery level low" >
+		</CheckBoxPreference>
+		
+		<CheckBoxPreference
+			android:key="sound_checkbox"
+			android:persistent="false"
+			android:title="Sound"
+			android:summary="Notify with sound when battery level low" >
+		</CheckBoxPreference>
+	</PreferenceCategory>
+	
+	<PreferenceCategory 
+	    android:title="About" >
+		<Preference 
+		    android:key="about_pref_key"
+		    android:title="About this app"
+		    android:summary="" >
+	    </Preference>
+	</PreferenceCategory>
+	
+</PreferenceScreen>
