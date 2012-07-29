@@ -157,7 +157,7 @@
                 android:id="@+id/settingsButton"
                 android:background="@drawable/black_button"
                 style="@style/button_style"
-                android:text="@string/infoViewSettingsButton" />
+                android:text="@string/infoViewOptionsButton" />
         </LinearLayout>
 			
     </TableLayout>

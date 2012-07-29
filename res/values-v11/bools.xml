@@ -1,4 +1,4 @@
 <resources>
     <bool name="lowVersion">false</bool>
-    <bool name="highVersion">true</bool>
+    <bool name="Honeycomb">true</bool>
 </resources>

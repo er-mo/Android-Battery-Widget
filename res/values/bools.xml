@@ -1,4 +1,5 @@
 <resources>
     <bool name="lowVersion">true</bool>
-    <bool name="highVersion">false</bool>
+    <bool name="Honeycomb">false</bool>
+    <bool name="IceCreamSandwich">false</bool>
 </resources>

@@ -41,6 +41,6 @@
     <style name="animation_style" parent="@android:style/Animation.Dialog"> 
         <item name="android:windowEnterAnimation">@anim/grow_from_middle</item>
         <item name="android:windowExitAnimation">@anim/shrink_to_middle</item>
-	</style> 
+	</style>
         
 </resources>

@@ -36,14 +36,16 @@
     <string name="batteryLevelSymbol">%</string>
     <string name="batteryVoltSymbol"> mV</string>
     <string name="batteryCelsiusSymbol">\u00B0 C</string>
+    <string name="batteryFahrenheitSymbol">\u00B0 F</string>
     
     <string name="infoViewSummaryButton">Summary</string>
-    <string name="infoViewSettingsButton">Settings</string>
+    <string name="infoViewOptionsButton">Options</string>
     <string name="infoViewPreferencesButton">Preferences</string>
     <string name="infoViewHistoryButton">History</string>
     
     <string name="settingsManager">Battery Widget Settings</string>
     <string name="historyViewManager">Battery History Details</string>
+    <string name="aboutView">About this app</string>
     
     <string name="availableData">Charge History</string>
     <string name="notAvailableDataYet">No history data available</string>

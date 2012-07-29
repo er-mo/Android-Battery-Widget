@@ -25,7 +25,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.ColorDrawable;
 import android.os.BatteryManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -47,11 +46,16 @@ public class BatteryWidgetActivity extends Activity implements OnClickListener{
     private Button        mSettingsButton;
     private Button        mHistoryButton;
     private Preferences   mBatteryInfo;
+    private Preferences   mPrefSettings;
+    private Intent        mIntent;
+    private int           mWidgetId;
 
     
     @Override
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
+        
+        mWidgetId = getIntent().getExtras().getInt(Constants.WIDGET_ID, 0);
 
         getWindow().setBackgroundDrawable(new ColorDrawable(0x7f000000));
 
@@ -65,9 +69,9 @@ public class BatteryWidgetActivity extends Activity implements OnClickListener{
         mTemperatureView =  (TextView) findViewById(R.id.temperature);
         mTechnologyView  =  (TextView) findViewById(R.id.technology);
         mHealthView      =  (TextView) findViewById(R.id.health);
-        mSummaryButton   =  (Button) findViewById(R.id.summaryButton);
-        mSettingsButton  =  (Button) findViewById(R.id.settingsButton);
-        mHistoryButton   =  (Button) findViewById(R.id.historyButton);
+        mSummaryButton   =  (Button)   findViewById(R.id.summaryButton);
+        mSettingsButton  =  (Button)   findViewById(R.id.settingsButton);
+        mHistoryButton   =  (Button)   findViewById(R.id.historyButton);
         
         mSummaryButton.setOnClickListener(this);
         mSettingsButton.setOnClickListener(this);
@@ -92,20 +96,27 @@ public class BatteryWidgetActivity extends Activity implements OnClickListener{
     public void onClick(View view) {
     	
     	switch (view.getId()) {
+    	
     	case R.id.summaryButton:
-    		this.startActivity(new Intent(Constants.BATTERY_USAGE));
-    		break;	
+    		mIntent = new Intent(Constants.BATTERY_USAGE);
+    		mIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+    		mIntent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+    		this.startActivity(mIntent);
+    		break;
+    		
     	case R.id.historyButton:
-    		this.startActivity(new Intent(getApplicationContext(), HistoryViewManager.class));
+    		mIntent = new Intent(getApplicationContext(), HistoryViewManager.class);
+    		mIntent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+    		this.startActivity(mIntent);
     		break;
+    	
     	case R.id.settingsButton:
-    		this.startActivity(new Intent(getApplicationContext(), SettingsManager.class));
-    		//if (Build.VERSION.SDK_INT < 11) {
-    		//	this.startActivity(new Intent(getApplicationContext(), PreferenceActivityLC.class));
-    		//} else {
-    		//	this.startActivity(new Intent(getApplicationContext(), PreferenceActivityHC.class));
-    		//}
+    		mIntent = new Intent(getApplicationContext(), OptionsManager.class);
+    		mIntent.putExtra(Constants.WIDGET_ID, mWidgetId);
+    		mIntent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+    		this.startActivity(mIntent);
     		break;
+    	
     	default:
     		break;	
     	}	
@@ -113,24 +124,23 @@ public class BatteryWidgetActivity extends Activity implements OnClickListener{
 
 
     private void updateBatteryInfoView(){
-    
-        try 
+        try
         {
             mBatteryInfo = new Preferences(Constants.BATTERY_INFO, getApplicationContext());
 
             mStatusView.setText(getBatteryStatus());
             mPlugView.setText(getBatteryPlug());
+            mTemperatureView.setText(getBatteryTemperature());
+            mHealthView.setText(getBatteryHealth());
             mLevelView.setText(mBatteryInfo.getValue(Constants.LEVEL, 0)+
                                         this.getString(R.string.batteryLevelSymbol));
             mScaleView.setText(mBatteryInfo.getValue(Constants.SCALE, 0)+
                                         this.getString(R.string.Empty));
             mVoltageView.setText(mBatteryInfo.getValue(Constants.VOLTAGE, 0)+
                                         this.getString(R.string.batteryVoltSymbol));
-            mTemperatureView.setText(getBatteryTemperature()+
-                                        this.getString(R.string.batteryCelsiusSymbol));
             mTechnologyView.setText(mBatteryInfo.getValue(Constants.TECHNOLOGY,"")+
                                         this.getString(R.string.Empty));
-            mHealthView.setText(getBatteryHealth());
+            
             
         }catch (Exception e) {}
     }
@@ -190,14 +200,23 @@ public class BatteryWidgetActivity extends Activity implements OnClickListener{
     }
 
     
-    private int getBatteryTemperature(){
+    private String getBatteryTemperature(){
     	
-        int temperature = mBatteryInfo.getValue(Constants.TEMPERATURE, 0);
-        temperature = temperature / 10;
-        return temperature;
+        int iTempValue  =  mBatteryInfo.getValue(Constants.TEMPERATURE, 0);
+        mPrefSettings   =  new Preferences(Constants.BATTERY_SETTINGS, this);
+        
+        if (mPrefSettings.getValue(Constants.TEMPERATURE_SETTINGS, Constants.DEFAULT_TEMEPERATURE)
+        		.equalsIgnoreCase(this.getString(R.string.batteryFahrenheitSymbol)))
+        {
+        	iTempValue  =  iTempValue * 9 / 5 + 320;
+        }
+        
+        float fTempValue  = iTempValue / 10;
+        return fTempValue + mPrefSettings.getValue(Constants.TEMPERATURE_SETTINGS, 
+                                                   Constants.DEFAULT_TEMEPERATURE);
     }
     
-    
+
     private void registerReceiver(){
     	
     	IntentFilter filter = new IntentFilter();
@@ -216,4 +235,3 @@ public class BatteryWidgetActivity extends Activity implements OnClickListener{
 	};
 
 }
-

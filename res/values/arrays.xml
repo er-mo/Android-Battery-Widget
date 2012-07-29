@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<string-array name="textColourListEntries">
 		<item name="White">White</item>
@@ -20,6 +20,24 @@
         <item name="Violet">#EE82EE</item>
         <item name="Lime">#00FF00</item>
         <item name="DarkGreen">#006400</item>
+	</string-array>
+	
+	<string-array name="widgetThemeEntries">
+	    <item name="Default">Default</item>
+	</string-array>
+	
+	<string-array name="widgetThemeEntryValues">
+	    <item name="Default">0</item>
+	</string-array>
+	
+	<string-array name="temperatureEntries">
+	    <item name="Celsius">Celsius</item>
+	    <item name="Fahrenheit">Fahrenheit</item>
+	</string-array>
+	
+	<string-array name="temperatureEntryValues">
+	    <item name="Celsius">\u00B0 C</item>
+	    <item name="Fahrenheit">\u00B0 F</item>
 	</string-array>
 
 </resources>

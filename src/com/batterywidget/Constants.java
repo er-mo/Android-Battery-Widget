@@ -22,6 +22,7 @@ public class Constants {
 	public final static String BATTERY_INFO	     =  "BATTERY_INFO_WIDGET";
 	public final static String BATTERY_SETTINGS  =  "BATTERY_SETTINGS";
 	public final static String APP_WIDGET_IDS    =  "AppWidgetIds";
+	public final static String WIDGET_ID         =  "WidgetId";
 	
 	public final static String STATUS       =  "status";	
 	public final static String PLUG         =  "plugged";
@@ -41,6 +42,7 @@ public class Constants {
 	public final static String WIDGET_THEME_SETTINGS    =  "widget_theme_settings";
 	public final static String TEXT_COLOUR_SETTINGS     =  "colour_settings";
 	public final static String NOTIFY_STYLE_SETTINGS    =  "notify_style_settings";
+	public final static String TEMPERATURE_SETTINGS     =  "temperature_settings";
 	
 	public final static String NOTIFY_ICON_CHECKBOX_KEY =  "notify_icon_checkbox";
 	public final static String VIBRATION_CHECKBOX_KEY   =  "vibration_checkbox";
@@ -48,8 +50,11 @@ public class Constants {
 	public final static String WIDGET_THEME_KEY         =  "widget_theme_list";
 	public final static String TEXT_COLOUR_KEY          =  "text_colour_list";
 	public final static String NOTIFY_STYLE_KEY         =  "notify_icon_list";
+	public final static String TEMPERATURE_TYPE_KEY     =  "temperature_list";
+	public final static String ABOUT_PREF_KEY           =  "about_pref_key";
 	
-	public final static String DEFAULT_COLOUR    =  "#FFFFFF";
+	public final static String DEFAULT_COLOUR           =  "#FFFFFF";
+	public final static String DEFAULT_TEMEPERATURE     =  "\u00B0 C";
 	
 	public static final String DB_NAME   =  "batteryWidget.db";
 	public static final String DB_TABLE  =  "batteryWidgetEntryTable";

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+*  Copyright 2012 Erkan Molla
+*
+*  Licensed under the Apache License, Version 2.0 (the "License");
+*  you may not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing, software
+*  distributed under the License is distributed on an "AS IS" BASIS,
+*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*  See the License for the specific language governing permissions and
+*  limitations under the License.
+ -->
+ 
+ <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     	android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/White" >
+
+        <LinearLayout
+            android:id="@+id/layout_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp" >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/launcher" >
+            </ImageView>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="35dp"
+                android:text="Battery Widget"
+                android:textColor="@color/Black"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:typeface="serif" >
+            </TextView>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/versionTextView"
+            android:layout_below="@+id/layout_1"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Version 1.2.1"
+            android:textColor="@color/Black" />
+
+        <LinearLayout
+            android:id="@+id/layout_2"
+            android:layout_below="@+id/versionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Created by: Erkan Molla"
+                android:textColor="@color/Black" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/layout_3"
+            android:layout_below="@+id/layout_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Black"
+                android:text="This app is placed on your android home screen to quickly check you battery level" />
+        </LinearLayout>
+
+        
+        <LinearLayout
+            android:id="@+id/layout_4"
+            android:layout_below="@+id/layout_3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical" >
+                <ImageView 
+                    android:layout_height="30dp" 
+                    android:layout_width="fill_parent"
+                    android:layout_marginRight="10dp" 
+                    android:layout_marginLeft="10dp" 
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/logo_github" />
+                <Button 
+                    android:layout_width="fill_parent" 
+                    android:layout_height="wrap_content"
+                    android:id="@+id/github_button"
+                    android:text="Go to GitHub" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/layout_5"
+            android:layout_below="@+id/layout_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Black"
+                android:text="If you wish to support the development please consider making a donation with paypal. Thank You!" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_6"
+            android:layout_below="@+id/layout_5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical" >
+                <ImageView 
+                    android:layout_height="30dp" 
+                    android:layout_width="fill_parent"
+                    android:layout_marginRight="10dp" 
+                    android:layout_marginLeft="10dp" 
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/paypal_logo" />
+                <Button 
+                    android:layout_width="fill_parent" 
+                    android:layout_height="wrap_content"
+                    android:id="@+id/paypal_button" 
+                    android:text="Go to PayPal" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>
