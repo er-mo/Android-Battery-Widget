@@ -204,14 +204,14 @@ public class BatteryWidgetActivity extends Activity implements OnClickListener{
     	
         int iTempValue  =  mBatteryInfo.getValue(Constants.TEMPERATURE, 0);
         mPrefSettings   =  new Preferences(Constants.BATTERY_SETTINGS, this);
-        
+
         if (mPrefSettings.getValue(Constants.TEMPERATURE_SETTINGS, Constants.DEFAULT_TEMEPERATURE)
         		.equalsIgnoreCase(this.getString(R.string.batteryFahrenheitSymbol)))
         {
         	iTempValue  =  iTempValue * 9 / 5 + 320;
         }
         
-        float fTempValue  = iTempValue / 10;
+        float  fTempValue = iTempValue / (float) 10;
         return fTempValue + mPrefSettings.getValue(Constants.TEMPERATURE_SETTINGS, 
                                                    Constants.DEFAULT_TEMEPERATURE);
     }
