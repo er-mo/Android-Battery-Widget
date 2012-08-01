@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Battery Widget Indicator</string>
+    <string name="widget_name">Battery Widget</string>
     <string name="service_description">Widget Update Service</string>
     <string name="battery_broadcast_receiver">Battery Broadcast Receiver</string>
     
@@ -50,4 +51,23 @@
     <string name="availableData">Charge History</string>
     <string name="notAvailableDataYet">No history data available</string>
     
+    <string name="packageVersion">Version 1.2.2</string>
+    <string name="authorInfo">
+        \nDeveloper: Erkan Molla
+        \nemail: molla.erkan@gmail.com
+    </string>
+    
+    <string name="aboutThisApp">
+        \nThis app is placed on your home screen so you can quickly check you battery level.
+        \nIt is an open source project and licensed with Apache License 2.0.
+        \nFeel free to contribute to the development of the project on GitHub.
+    </string>
+    
+    <string name="donation">
+        \nIf you wish to support the development please consider making a donation with paypal. Thank You!
+    </string>
+    
+    <string name="githubButtonName">Go to GitHub</string>
+    <string name="paypalButtonName">Go to PayPal</string>
+
 </resources>
