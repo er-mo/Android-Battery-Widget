@@ -29,8 +29,7 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 
 
-public class OptionsManager extends PreferenceActivity implements OnSharedPreferenceChangeListener, 
-                                                                  OnPreferenceClickListener{
+public class OptionsManager extends PreferenceActivity implements OnSharedPreferenceChangeListener{
 	
 	private CheckBoxPreference   mVibrationCB;
 	private CheckBoxPreference   mSoundCB;
@@ -81,7 +80,7 @@ public class OptionsManager extends PreferenceActivity implements OnSharedPrefer
 		mVibrationCB.setChecked(mPrefSettings.getValue(Constants.VIBRATION_SETTINGS, false));
 		mSoundCB.setChecked(mPrefSettings.getValue(Constants.SOUND_SETTINGS, false));
 		mNotifyCB.setChecked(mPrefSettings.getValue(Constants.NOTIFY_ICON_SETTINGS, false));
-		mAboutPref.setOnPreferenceClickListener(this);
+		mAboutPref.setOnPreferenceClickListener(clickListener);
 		
 		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 	}
@@ -114,17 +113,22 @@ public class OptionsManager extends PreferenceActivity implements OnSharedPrefer
 		
 		mPreferencesChanged = true;
 	}
-
-
-	public boolean onPreferenceClick(Preference preference) {
-
-		if (preference.equals(mAboutPref))
-		{
-			Intent intent = new Intent(getApplicationContext(), AboutTabInfo.class);
-			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			getApplicationContext().startActivity(intent);
-		}
+	
+	
+	final private OnPreferenceClickListener clickListener = new OnPreferenceClickListener() {
 		
-		return false;
-	}
+		public boolean onPreferenceClick(Preference preference) {
+			
+			if (preference.equals(mAboutPref))
+			{
+				Intent intent = new Intent(getApplicationContext(), AboutTabInfo.class);
+				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+				getApplicationContext().startActivity(intent);
+			}
+			
+			return false;
+		}
+	};
+
 }
