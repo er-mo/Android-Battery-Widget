@@ -42,5 +42,14 @@
         <item name="android:windowEnterAnimation">@anim/grow_from_middle</item>
         <item name="android:windowExitAnimation">@anim/shrink_to_middle</item>
 	</style>
+	
+    <style name="notificationText">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    
+    <style name="notificationTitle">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
         
 </resources>
