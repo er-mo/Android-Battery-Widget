@@ -27,7 +27,6 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.BatteryManager;
 import android.os.IBinder;
-import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 
@@ -51,15 +50,17 @@ public class BatteryUpdateService extends Service {
         AppWidgetManager manager = AppWidgetManager.getInstance(this);
         
         RemoteViews widgetView = getWidgetRemoteView();
-        	Log.d("TAG","out");
-       	if (this.getResources().getBoolean(R.bool.lowVersion))
-       	{	Log.d("TAG","in1");
-       		manager.updateAppWidget(new ComponentName(this, BatteryWidget.class), widgetView);
-       	}
-       	else
-       	{Log.d("TAG","in2");
-       		manager.updateAppWidget(new ComponentName(this, BatteryWidget_HC.class), widgetView);
-       	}        	
+        
+        if (this.getResources().getBoolean(R.bool.lowVersion))
+        {
+        	manager.updateAppWidget(new ComponentName(this, BatteryWidget.class), widgetView);	
+        }
+        
+        else
+        {
+        	manager.updateAppWidget(new ComponentName(this, BatteryWidget_HC.class), widgetView);		
+        }
+        
     }
 
 
@@ -120,8 +121,8 @@ public class BatteryUpdateService extends Service {
         widgetView.setViewVisibility(R.id.charge_view, charge? View.VISIBLE:View.INVISIBLE);
         
         /****/
-        //NotificationsManager mNotificationsManager = new NotificationsManager(this);
-        //mNotificationsManager.updateNotificationIcon(level, charge, prefSettings);
+        NotificationsManager mNotificationsManager = new NotificationsManager(this);
+        mNotificationsManager.updateNotificationIcon(level, charge, prefSettings);
         
         /****/
         Intent intent = new Intent(this, BatteryWidgetActivity.class);
