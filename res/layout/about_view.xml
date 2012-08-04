@@ -99,7 +99,7 @@
                     android:layout_width="fill_parent"
                     android:layout_marginRight="10dp" 
                     android:layout_marginLeft="10dp" 
-                    android:src="@drawable/github_logo_gary" />
+                    android:src="@drawable/logo_github" />
                 <Button 
                     android:layout_width="fill_parent" 
                     android:layout_height="wrap_content"
