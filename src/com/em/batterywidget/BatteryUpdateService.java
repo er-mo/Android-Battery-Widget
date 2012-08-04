@@ -14,9 +14,9 @@
 *  limitations under the License.
 */
 
-package com.batterywidget;
+package com.em.batterywidget;
 
-import com.batterywidget.preferences.Preferences;
+import com.em.batterywidget.preferences.Preferences;
 
 import android.app.PendingIntent;
 import android.app.Service;
@@ -27,14 +27,13 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.BatteryManager;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 
 
 public class BatteryUpdateService extends Service {
 	
-	private static final int _id = 111111;
-
     private BatteryReceiver  mBatteryReceiver = null;
     
     private int level;
@@ -51,33 +50,16 @@ public class BatteryUpdateService extends Service {
 
         AppWidgetManager manager = AppWidgetManager.getInstance(this);
         
-        int[] widgetIds  =  intent.getIntArrayExtra(Constants.APP_WIDGET_IDS);
-        
-        if (widgetIds != null)
-        {
-        	for (int widget : widgetIds)
-        	{
-        		RemoteViews widgetView = getWidgetRemoteView(widget);
-        		
-        		if (widgetView != null)
-        		{
-        			manager.updateAppWidget(widget, widgetView);
-        		}
-        	}
-        }
-        else
-        {
-        	RemoteViews widgetView = getWidgetRemoteView(_id);
-        	
-        	if (this.getResources().getBoolean(R.bool.lowVersion))
-        	{	
-        		manager.updateAppWidget(new ComponentName(this, BatteryWidget.class), widgetView);
-        	}
-        	else
-        	{
-        		manager.updateAppWidget(new ComponentName(this, BatteryWidget_HC.class), widgetView);
-        	}        	
-        }
+        RemoteViews widgetView = getWidgetRemoteView();
+        	Log.d("TAG","out");
+       	if (this.getResources().getBoolean(R.bool.lowVersion))
+       	{	Log.d("TAG","in1");
+       		manager.updateAppWidget(new ComponentName(this, BatteryWidget.class), widgetView);
+       	}
+       	else
+       	{Log.d("TAG","in2");
+       		manager.updateAppWidget(new ComponentName(this, BatteryWidget_HC.class), widgetView);
+       	}        	
     }
 
 
@@ -105,7 +87,7 @@ public class BatteryUpdateService extends Service {
     }
 
 
-    private RemoteViews getWidgetRemoteView(int widgetId){
+    private RemoteViews getWidgetRemoteView(){
 
         Preferences prefSettings     =  new Preferences(Constants.BATTERY_SETTINGS, this);
         Preferences prefBatteryInfo  =  new Preferences(Constants.BATTERY_INFO, this);
@@ -116,30 +98,33 @@ public class BatteryUpdateService extends Service {
         String  color   =  prefSettings.getValue(Constants.TEXT_COLOUR_SETTINGS, Constants.DEFAULT_COLOUR);
         boolean charge  =  status == BatteryManager.BATTERY_STATUS_CHARGING;
 
-        /**/
+        /****/
         RemoteViews widgetView = new RemoteViews(this.getPackageName(), R.layout.widget_view);
         
         widgetView.setImageViewResource(R.id.battery_view, R.drawable.battery);
         
         widgetView.setViewVisibility(R.id.percent100, round(100)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent90, round(90)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent80, round(80)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent70, round(70)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent60, round(60)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent50, round(50)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent40, round(40)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent30, round(30)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent20, round(20)? View.VISIBLE:View.INVISIBLE);
-        widgetView.setViewVisibility(R.id.percent10, round(10)? View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent90,  round(90)?  View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent80,  round(80)?  View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent70,  round(70)?  View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent60,  round(60)?  View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent50,  round(50)?  View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent40,  round(40)?  View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent30,  round(30)?  View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent20,  round(20)?  View.VISIBLE:View.INVISIBLE);
+        widgetView.setViewVisibility(R.id.percent10,  round(10)?  View.VISIBLE:View.INVISIBLE);
         
         widgetView.setViewVisibility(R.id.batterytext, View.VISIBLE);
-        widgetView.setTextColor(R.id.batterytext, Color.parseColor(color));
-        widgetView.setTextViewText(R.id.batterytext, String.valueOf(level)+"%");
+        widgetView.setTextColor     (R.id.batterytext, Color.parseColor(color));
+        widgetView.setTextViewText  (R.id.batterytext, String.valueOf(level)+"%");
         widgetView.setViewVisibility(R.id.charge_view, charge? View.VISIBLE:View.INVISIBLE);
         
-        /***/
+        /****/
+        //NotificationsManager mNotificationsManager = new NotificationsManager(this);
+        //mNotificationsManager.updateNotificationIcon(level, charge, prefSettings);
+        
+        /****/
         Intent intent = new Intent(this, BatteryWidgetActivity.class);
-        intent.putExtra(Constants.WIDGET_ID, widgetId);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         widgetView.setOnClickPendingIntent(R.id.widget_view, pendingIntent);
 

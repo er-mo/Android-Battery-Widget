@@ -14,7 +14,7 @@
 *  limitations under the License.
 */
 
-package com.batterywidget.preferences;
+package com.em.batterywidget.preferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;

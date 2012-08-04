@@ -14,7 +14,7 @@
 *  limitations under the License.
 */
 
-package com.batterywidget;
+package com.em.batterywidget;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -33,9 +33,7 @@ public class BatteryWidget_HC extends AppWidgetProvider {
 	@Override
 	public void onUpdate(Context context, AppWidgetManager widgetManager, int[] widgetIds){
 		super.onUpdate(context, widgetManager, widgetIds);
-		Intent intent = new Intent(context, BatteryUpdateService.class);
-		intent.putExtra(Constants.APP_WIDGET_IDS, widgetIds);
-		context.startService(intent);
+		context.startService(new Intent(context, BatteryUpdateService.class));
 	}
 	
 	@Override

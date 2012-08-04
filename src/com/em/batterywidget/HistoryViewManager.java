@@ -14,9 +14,9 @@
 *  limitations under the License.
 */
 
-package com.batterywidget;
+package com.em.batterywidget;
 
-import com.batterywidget.storage.SQLiteDataBase;
+import com.em.batterywidget.storage.SQLiteDataBase;
 
 import android.app.Activity;
 import android.database.Cursor;

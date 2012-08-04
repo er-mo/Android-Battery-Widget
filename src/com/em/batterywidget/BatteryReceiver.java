@@ -14,10 +14,10 @@
 *  limitations under the License.
 */
 
-package com.batterywidget;
+package com.em.batterywidget;
 
-import com.batterywidget.storage.SQLiteDataBase;
-import com.batterywidget.preferences.Preferences;
+import com.em.batterywidget.preferences.Preferences;
+import com.em.batterywidget.storage.SQLiteDataBase;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

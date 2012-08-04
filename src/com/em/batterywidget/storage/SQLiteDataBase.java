@@ -14,9 +14,9 @@
 *  limitations under the License.
 */
 
-package com.batterywidget.storage;
+package com.em.batterywidget.storage;
 
-import com.batterywidget.Constants;
+import com.em.batterywidget.Constants;
 
 import android.content.ContentValues;
 import android.content.Context;

@@ -14,9 +14,9 @@
 *  limitations under the License.
 */
 
-package com.batterywidget;
+package com.em.batterywidget;
 
-import com.batterywidget.preferences.Preferences;
+import com.em.batterywidget.preferences.Preferences;
 
 import android.os.Bundle;
 import android.content.Intent;
@@ -40,16 +40,13 @@ public class OptionsManager extends PreferenceActivity implements OnSharedPrefer
 	private Preference           mAboutPref;
 	private Preferences          mPrefSettings;
 	private boolean              mPreferencesChanged = false;
-	private int                  mWidgetId;
 	
 	
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle bundle){
 		super.onCreate(bundle);
-		
-		mWidgetId = getIntent().getExtras().getInt(Constants.WIDGET_ID, 0);
-		
+				
 		addPreferencesFromResource(R.xml.options);
 		
 		
@@ -101,7 +98,6 @@ public class OptionsManager extends PreferenceActivity implements OnSharedPrefer
 		if (mPreferencesChanged)
 		{
 			Intent intent = new Intent(getApplicationContext(),BatteryUpdateService.class);
-			intent.putExtra(Constants.WIDGET_ID, mWidgetId);
 			getApplicationContext().startService(intent);
 		}
 
@@ -121,7 +117,7 @@ public class OptionsManager extends PreferenceActivity implements OnSharedPrefer
 			
 			if (preference.equals(mAboutPref))
 			{
-				Intent intent = new Intent(getApplicationContext(), AboutTabInfo.class);
+				Intent intent = new Intent(getApplicationContext(), AboutInfoActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 				getApplicationContext().startActivity(intent);

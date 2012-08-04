@@ -14,7 +14,7 @@
 *  limitations under the License.
 */
 
-package com.batterywidget;
+package com.em.batterywidget;
 
 
 public class Constants {
@@ -66,4 +66,6 @@ public class Constants {
 	public static final String YAxisTitle = "Charge level";
 	public static final String DateFormat = "dd MMM";
 	
+	public static final String PaypalUrl  = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WZKBT53MJFUW8";
+	public static final String GithubUrl  = "https://github.com/ermolla/Android-Battery-Widget";
 }

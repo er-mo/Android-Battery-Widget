@@ -14,9 +14,9 @@
 *  limitations under the License.
 */
 
-package com.batterywidget;
+package com.em.batterywidget;
 
-import com.batterywidget.preferences.*;
+import com.em.batterywidget.preferences.*;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -48,15 +48,12 @@ public class BatteryWidgetActivity extends Activity implements OnClickListener{
     private Preferences   mBatteryInfo;
     private Preferences   mPrefSettings;
     private Intent        mIntent;
-    private int           mWidgetId;
 
     
     @Override
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
         
-        mWidgetId = getIntent().getExtras().getInt(Constants.WIDGET_ID, 0);
-
         getWindow().setBackgroundDrawable(new ColorDrawable(0x7f000000));
 
         setContentView(R.layout.battery_info_view);
@@ -112,7 +109,6 @@ public class BatteryWidgetActivity extends Activity implements OnClickListener{
     	
     	case R.id.settingsButton:
     		mIntent = new Intent(getApplicationContext(), OptionsManager.class);
-    		mIntent.putExtra(Constants.WIDGET_ID, mWidgetId);
     		mIntent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
     		this.startActivity(mIntent);
     		break;

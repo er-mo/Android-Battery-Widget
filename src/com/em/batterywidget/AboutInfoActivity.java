@@ -14,18 +14,42 @@
 *  limitations under the License.
 */
 
-package com.batterywidget;
+package com.em.batterywidget;
 
 import android.app.Activity;
+import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 
-public class AboutTabInfo extends Activity {
+public class AboutInfoActivity extends Activity{	
 	
 	@Override
 	protected void onCreate(Bundle bundle){
 		super.onCreate(bundle);
 		
 		setContentView(R.layout.about_view);
+		
+		findViewById(R.id.paypal_button).setOnClickListener(lPaypal);
+		findViewById(R.id.github_button).setOnClickListener(lGithub);
+		
 	}
+	
+	final private OnClickListener lPaypal = new OnClickListener() {
+		
+		public void onClick(View v) {
+			Uri Url = Uri.parse(Constants.PaypalUrl);
+			startActivity(new Intent(Intent.ACTION_VIEW, Url));
+		}
+	};
+	
+	final private OnClickListener lGithub = new OnClickListener() {
+		
+		public void onClick(View v) {
+			Uri Url = Uri.parse(Constants.GithubUrl);
+			startActivity(new Intent(Intent.ACTION_VIEW, Url));
+		}
+	};
 
 }
