@@ -33,7 +33,11 @@ public class NotificationsManager {
     private NotificationManager  notificationManager;
     private Context              mContext;
     
+    
     public NotificationsManager(Context context) {
+    	
+    	notificationManager = (NotificationManager) 
+    			mContext.getSystemService(Context.NOTIFICATION_SERVICE);
     	
     	mContext = context;
     }
@@ -46,28 +50,10 @@ public class NotificationsManager {
     		notificationManager.cancel(_ID);
     		return;
     	}
-    	
-    	notificationManager = (NotificationManager) 
-    			mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-        
+
     	int icon = status ? R.drawable.ic_stat_charge : R.drawable.ic_stat_battery_level;
         
-        /*
-        Notification.Builder builder = new Notification.Builder(mContext);
-        PendingIntent pIntent =  PendingIntent.getActivity(mContext, 0, new Intent(mContext, OnWidgetTap.class), 0);
-        builder.setContentTitle(title)
-        	   .setContentText("Battery level: " + batteryLevel + "%")
-        	   .setSmallIcon(icon)
-        	   .setAutoCancel(false)
-        	   .setContentInfo("ContentInfo")
-        	   .setLights(0xFFFF0000, 500, 500)
-        	   .setContentIntent(pIntent)
-        	   .setOngoing(true)
-        	   .setOnlyAlertOnce(true);
-        mNotificationManager.notify(_ID, builder.getNotification());
-        */
-        
-		Notification notification = new Notification(icon, null, System.currentTimeMillis()); /*System.currentTimeMillis()*/
+		Notification notification = new Notification(icon, null, System.currentTimeMillis());
         notification.iconLevel = batteryLevel;
         notification.flags =
             Notification.FLAG_ONGOING_EVENT |
