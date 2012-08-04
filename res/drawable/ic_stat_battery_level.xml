@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_stat_10" android:maxLevel="10" />
+    <item android:drawable="@drawable/ic_stat_20" android:maxLevel="20" />
+    <item android:drawable="@drawable/ic_stat_30" android:maxLevel="30" />
+    <item android:drawable="@drawable/ic_stat_40" android:maxLevel="40" />
+    <item android:drawable="@drawable/ic_stat_50" android:maxLevel="50" />
+    <item android:drawable="@drawable/ic_stat_60" android:maxLevel="60" />
+    <item android:drawable="@drawable/ic_stat_70" android:maxLevel="70" />
+    <item android:drawable="@drawable/ic_stat_80" android:maxLevel="80" />
+    <item android:drawable="@drawable/ic_stat_90" android:maxLevel="90" />
+    <item android:drawable="@drawable/ic_stat_100" android:maxLevel="100" />
+</level-list>
