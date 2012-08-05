@@ -47,7 +47,7 @@ public class BatteryUpdateService extends Service {
 
         AppWidgetManager manager = AppWidgetManager.getInstance(this);
 
-        RemoteViews widgetView = getWidgetRemoteView();
+        RemoteViews widgetView   = getWidgetRemoteView();
 
         if (this.getResources().getBoolean(R.bool.lowVersion)) {
             manager.updateAppWidget(new ComponentName(this, BatteryWidget.class), widgetView);
