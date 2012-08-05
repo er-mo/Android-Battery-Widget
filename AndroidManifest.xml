@@ -80,17 +80,6 @@
             android:label="@string/aboutView"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" >
         </activity>
-
-        <activity 
-            android:name=".FragmentPreferences" 
-            android:enabled="@bool/Honeycomb"
-            android:exported="false"
-            android:label="@string/settingsManager" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
-            </intent-filter>
-        </activity>
         
     </application>
 </manifest>
