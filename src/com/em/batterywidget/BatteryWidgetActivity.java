@@ -89,6 +89,7 @@ public class BatteryWidgetActivity extends Activity implements OnClickListener {
         unregisterReceiver(batteryEventListener);
     }
 
+
     public void onClick(View view) {
 
         switch (view.getId()) {
