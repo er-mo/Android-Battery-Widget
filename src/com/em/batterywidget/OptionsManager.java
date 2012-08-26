@@ -56,13 +56,13 @@ public class OptionsManager extends PreferenceActivity implements OnSharedPrefer
                                                  Constants.SOUND_CHECKBOX_KEY);
         mNotifyCB    = (CheckBoxPreference) getPreferenceScreen().findPreference(
                                                  Constants.NOTIFY_ICON_CHECKBOX_KEY);
-        mThemeList   = (ListPreference) getPreferenceScreen().findPreference(
+        mThemeList   = (ListPreference)     getPreferenceScreen().findPreference(
                                                  Constants.WIDGET_THEME_KEY);
-        mColourList  = (ListPreference) getPreferenceScreen().findPreference(
+        mColourList  = (ListPreference)     getPreferenceScreen().findPreference(
                                                  Constants.TEXT_COLOUR_KEY);
-        mTempList    = (ListPreference) getPreferenceScreen().findPreference(
+        mTempList    = (ListPreference)     getPreferenceScreen().findPreference(
                                                  Constants.TEMPERATURE_TYPE_KEY);
-        mAboutPref   = (Preference) getPreferenceScreen().findPreference(
+        mAboutPref   = (Preference)         getPreferenceScreen().findPreference(
                                                  Constants.ABOUT_PREF_KEY);
         
         mPrefSettings = new Preferences(Constants.BATTERY_SETTINGS, this);
@@ -77,6 +77,7 @@ public class OptionsManager extends PreferenceActivity implements OnSharedPrefer
         mVibrationCB.setChecked(mPrefSettings.getValue(Constants.VIBRATION_SETTINGS, false));
         mSoundCB.setChecked    (mPrefSettings.getValue(Constants.SOUND_SETTINGS, false));
         mNotifyCB.setChecked   (mPrefSettings.getValue(Constants.NOTIFY_ICON_SETTINGS, false));
+        
         mAboutPref.setOnPreferenceClickListener(clickListener);
         
         getPreferenceScreen().getSharedPreferences()
