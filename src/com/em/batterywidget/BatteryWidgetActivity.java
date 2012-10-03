@@ -90,6 +90,7 @@ public class BatteryWidgetActivity extends Activity implements OnClickListener {
     }
     
 
+
     public void onClick(View view) {
 
         switch (view.getId()) {
