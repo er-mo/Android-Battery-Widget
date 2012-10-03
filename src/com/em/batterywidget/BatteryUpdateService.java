@@ -117,7 +117,7 @@ public class BatteryUpdateService extends Service {
 
         /****/
         NotificationsManager mNotificationsManager = new NotificationsManager(this);
-        mNotificationsManager.updateNotificationIcon(level, charge, prefSettings);
+        mNotificationsManager.updateNotificationIcon(prefSettings, prefBatteryInfo);
 
         /****/
         Intent intent = new Intent(this, BatteryWidgetActivity.class);

@@ -2,4 +2,6 @@ bin
 gen
 proguard.cfg
 .project
+.settings
+res/anim/*.xml
 

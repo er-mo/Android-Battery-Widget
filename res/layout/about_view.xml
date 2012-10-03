@@ -21,7 +21,7 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:paddingBottom="10dp"
+        android:paddingBottom="20dp"
         android:background="@color/Black" >
 
         <LinearLayout
@@ -145,6 +145,21 @@
                     style="@style/button_style"
                     android:background="@drawable/gray_button"
                     android:text="@string/paypalButtonName" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/layout_7"
+            android:layout_below="@+id/layout_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/White"
+                android:textSize="16dp"
+                android:text="@string/publicThanks" />
         </LinearLayout>
 
     </RelativeLayout>

@@ -63,8 +63,16 @@ public class Constants {
     public static final String XAxisTitle               = "Date";
     public static final String YAxisTitle               = "Charge level";
     public static final String DateFormat               = "dd MMM";
+    public static final String blank                    = " ";
     /* ** */
     public static final String PaypalUrl                = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WZKBT53MJFUW8";
     public static final String GithubUrl                = "https://github.com/ermolla/Android-Battery-Widget";
+    /* ** */
+    public static final String FULL                     = " Full";
+    public static final String CHARGING_USB             = " Charging (USB)";
+    public static final String CHARGING_AC              = " Charging (AC)";
+    public static final String CHARGING                 = " Charging";
+    public static final String DISCHARGING              = " Discharging";
+    public static final String UNKNOWN                  = " Unknown";
 
 }

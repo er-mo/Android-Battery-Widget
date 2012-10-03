@@ -88,6 +88,7 @@ public class BatteryWidgetActivity extends Activity implements OnClickListener {
         super.onPause();
         unregisterReceiver(batteryEventListener);
     }
+    
 
     public void onClick(View view) {
 
