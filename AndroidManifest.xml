@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	android:installLocation="internalOnly"
     package="com.em.batterywidget"
     android:versionCode="1414"
     android:versionName="1.4.1" >
 
     <uses-sdk 
-        android:targetSdkVersion="16"
+        android:targetSdkVersion="19"
         android:minSdkVersion="8" >
     </uses-sdk>
     
@@ -81,10 +82,11 @@
             android:label="@string/settingsManager" >
         </activity>
         
+        <!--android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar"-->
         <activity
             android:name=".AboutInfoActivity"
-            android:label="@string/aboutView"
-            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" >
+            android:label="@string/aboutView"    
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         
     </application>
