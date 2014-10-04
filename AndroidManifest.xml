@@ -1,93 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	android:installLocation="internalOnly"
     package="com.em.batterywidget"
+    android:installLocation="internalOnly"
     android:versionCode="1414"
     android:versionName="1.4.1" >
 
-    <uses-sdk 
-        android:targetSdkVersion="19"
-        android:minSdkVersion="8" >
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="21" >
     </uses-sdk>
-    
+
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.em.batterywidget" />
-    
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> 
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    
+
     <application
+        android:hardwareAccelerated="true"
         android:icon="@drawable/launcher"
-        android:label="@string/app_name" 
-        android:hardwareAccelerated="true" >
-        
+        android:label="@string/app_name" >
         <uses-library android:name="android.test.runner" />
-                
-        <receiver 
-            android:name=".BatteryWidget_HC" 
-            android:label="@string/app_name"
-            android:enabled="@bool/Honeycomb" 
-            android:exported="false" >
-            <intent-filter>
-                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_hc" />
-        </receiver>
 
         <receiver
-            android:name=".BatteryWidget" 
-            android:label="@string/app_name"
-            android:enabled="@bool/lowVersion"
-            android:exported="false" >
+            android:name=".BatteryWidget_HC"
+            android:enabled="@bool/Honeycomb"
+            android:exported="false"
+            android:label="@string/app_name" >
             <intent-filter>
-                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget" />
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_hc" />
         </receiver>
-        
-        <service 
-            android:name=".BatteryUpdateService" 
+        <receiver
+            android:name=".BatteryWidget"
+            android:enabled="@bool/lowVersion"
+            android:exported="false"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget" />
+        </receiver>
+
+        <service
+            android:name=".BatteryUpdateService"
             android:label="@string/app_name" >
         </service>
-            
-        <receiver 
-            android:name=".BatteryReceiver" 
-            android:label="@string/battery_broadcast_receiver">
+
+        <receiver
+            android:name=".BatteryReceiver"
+            android:label="@string/battery_broadcast_receiver" >
             <intent-filter>
-                 <action android:name="android.intent.action.BATTERY_CHANGED" />
-                 <action android:name="android.intent.action.BATTERY_LOW" />
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+                <action android:name="android.intent.action.BATTERY_LOW" />
             </intent-filter>
         </receiver>
-            
-        <activity 
+
+        <activity
             android:name=".BatteryWidgetActivity"
-            android:theme="@style/activity_style"
             android:configChanges="orientation|keyboardHidden"
-            android:exported="false" >
+            android:exported="false"
+            android:theme="@style/activity_style" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />                                                                                             
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name=".HistoryViewManager"
-            android:label="@string/historyViewManager" 
-            android:screenOrientation="portrait" 
-            android:noHistory="true" >
+            android:label="@string/historyViewManager"
+            android:noHistory="true"
+            android:screenOrientation="portrait" >
         </activity>
-        
         <activity
             android:name=".OptionsManager"
             android:label="@string/settingsManager" >
         </activity>
-        
-        <!--android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar"-->
+
+        <!-- android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" -->
         <activity
             android:name=".AboutInfoActivity"
-            android:label="@string/aboutView"    
+            android:label="@string/aboutView"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
-        
     </application>
+
 </manifest>

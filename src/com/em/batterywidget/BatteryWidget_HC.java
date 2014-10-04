@@ -21,16 +21,13 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 
-
 public class BatteryWidget_HC extends AppWidgetProvider {
-
 
     @Override
     public void onEnabled(Context context) {
         super.onEnabled(context);
         context.startService(new Intent(context, BatteryUpdateService.class));
     }
-    
 
     @Override
     public void onUpdate(Context context, AppWidgetManager widgetManager, int[] widgetIds) {
@@ -38,7 +35,6 @@ public class BatteryWidget_HC extends AppWidgetProvider {
         context.startService(new Intent(context, BatteryUpdateService.class));
     }
 
-    
     @Override
     public void onDeleted(Context context, int[] widgetIds) {
         super.onDeleted(context, widgetIds);

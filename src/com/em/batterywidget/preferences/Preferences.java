@@ -19,20 +19,15 @@ package com.em.batterywidget.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-
 public class Preferences {
 
     private SharedPreferences mPreference;
-    
 
     public Preferences(String preferenceKey, Context context) {
-
         mPreference = context.getSharedPreferences(preferenceKey, 0);
     }
-    
 
     public void setValue(String key, int value) {
-
         if (mPreference != null) {
             SharedPreferences.Editor editor = mPreference.edit();
             editor.putInt(key, value);
@@ -40,19 +35,15 @@ public class Preferences {
         }
     }
 
-    
     public void setValue(String key, boolean value) {
-
         if (mPreference != null) {
             SharedPreferences.Editor editor = mPreference.edit();
             editor.putBoolean(key, value);
             editor.commit();
         }
     }
-    
 
     public void setValue(String key, String value) {
-
         if (mPreference != null) {
             SharedPreferences.Editor editor = mPreference.edit();
             editor.putString(key, value);
@@ -60,30 +51,24 @@ public class Preferences {
         }
     }
 
-    
     public int getValue(String key, int value) {
-
-        if (mPreference != null)
+        if (mPreference != null) {
             return mPreference.getInt(key, value);
-
+        }
         return value;
     }
 
-    
     public boolean getValue(String key, boolean value) {
-
-        if (mPreference != null)
+        if (mPreference != null) {
             return mPreference.getBoolean(key, value);
-
+        }
         return value;
     }
 
-    
     public String getValue(String key, String value) {
-
-        if (mPreference != null)
+        if (mPreference != null) {
             return mPreference.getString(key, value);
-
+        }
         return value;
     }
 

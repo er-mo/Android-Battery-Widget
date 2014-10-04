@@ -16,27 +16,22 @@
 
 package com.em.batterywidget.tests;
 
+import android.content.Intent;
+import android.test.mock.MockContext;
 import java.util.ArrayList;
 import java.util.List;
-import android.test.mock.MockContext;
-import android.content.Intent;
-
 
 public class BatteryInfoContext extends MockContext {
-    
-    
+
     private List<Intent> mReceivedIntents = new ArrayList<Intent>();
-    
-    
+
     @Override
     public void sendBroadcast(Intent xiIntent) {
         mReceivedIntents.add(xiIntent);
     }
 
-    
     public List<Intent> getReceivedIntents() {
         return mReceivedIntents;
     }
-    
-}
 
+}

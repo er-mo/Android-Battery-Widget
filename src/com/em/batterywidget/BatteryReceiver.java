@@ -16,51 +16,45 @@
 
 package com.em.batterywidget;
 
-import com.em.batterywidget.preferences.Preferences;
-import com.em.batterywidget.storage.SQLiteDataBase;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Vibrator;
-
+import com.em.batterywidget.preferences.Preferences;
+import com.em.batterywidget.storage.SQLiteDataBase;
 
 public class BatteryReceiver extends BroadcastReceiver {
 
-    
     @Override
     public void onReceive(Context context, Intent intent) {
-
         try {
-            
             if (intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED)) {
-                
                 Preferences batteryInfo = new Preferences(Constants.BATTERY_INFO, context);
 
                 if (intent.getIntExtra(Constants.LEVEL, 0) != batteryInfo.getValue(Constants.LEVEL, 0)) {
-                    SQLiteDataBase.Entry entry = new SQLiteDataBase.Entry(intent.getIntExtra(Constants.LEVEL, 0));
+                    SQLiteDataBase.Entry entry = new SQLiteDataBase.Entry(intent.getIntExtra(
+                            Constants.LEVEL, 0));
                     SQLiteDataBase db = new SQLiteDataBase(context);
                     db.openWrite();
                     db.insertEntry(entry);
                     db.close();
+
                 }
 
-                batteryInfo.setValue(Constants.STATUS,     intent.getIntExtra(Constants.STATUS, 0));
-                batteryInfo.setValue(Constants.PLUG,       intent.getIntExtra(Constants.PLUG, 0));
-                batteryInfo.setValue(Constants.LEVEL,      intent.getIntExtra(Constants.LEVEL, 0));
-                batteryInfo.setValue(Constants.SCALE,      intent.getIntExtra(Constants.SCALE, 0));
-                batteryInfo.setValue(Constants.VOLTAGE,    intent.getIntExtra(Constants.VOLTAGE, 0));
-                batteryInfo.setValue(Constants.TEMPERATURE,intent.getIntExtra(Constants.TEMPERATURE, 0));
+                batteryInfo.setValue(Constants.STATUS, intent.getIntExtra(Constants.STATUS, 0));
+                batteryInfo.setValue(Constants.PLUG, intent.getIntExtra(Constants.PLUG, 0));
+                batteryInfo.setValue(Constants.LEVEL, intent.getIntExtra(Constants.LEVEL, 0));
+                batteryInfo.setValue(Constants.SCALE, intent.getIntExtra(Constants.SCALE, 0));
+                batteryInfo.setValue(Constants.VOLTAGE, intent.getIntExtra(Constants.VOLTAGE, 0));
+                batteryInfo.setValue(Constants.TEMPERATURE, intent.getIntExtra(Constants.TEMPERATURE, 0));
                 batteryInfo.setValue(Constants.TECHNOLOGY, intent.getStringExtra(Constants.TECHNOLOGY));
-                batteryInfo.setValue(Constants.HEALTH,     intent.getIntExtra(Constants.HEALTH, 0));
+                batteryInfo.setValue(Constants.HEALTH, intent.getIntExtra(Constants.HEALTH, 0));
 
-                context.startService(new Intent(context,BatteryUpdateService.class));
+                context.startService(new Intent(context, BatteryUpdateService.class));
             }
-            
 
             if (intent.getAction().equals(Intent.ACTION_BATTERY_LOW)) {
-                
                 Preferences mPreference = new Preferences(Constants.BATTERY_SETTINGS, context);
 
                 if (mPreference.getValue(Constants.VIBRATION_SETTINGS, false)) {
@@ -74,7 +68,7 @@ public class BatteryReceiver extends BroadcastReceiver {
                 }
 
                 if (mPreference.getValue(Constants.SOUND_SETTINGS, false)) {
-                    final MediaPlayer mp = MediaPlayer.create(context,R.raw.low_battery);
+                    final MediaPlayer mp = MediaPlayer.create(context, R.raw.low_battery);
                     new Thread() {
                         @Override
                         public void run() {
@@ -83,8 +77,8 @@ public class BatteryReceiver extends BroadcastReceiver {
                     }.start();
                 }
             }
-
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

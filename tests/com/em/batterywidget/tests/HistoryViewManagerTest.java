@@ -19,53 +19,38 @@ package com.em.batterywidget.tests;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.view.View;
-
 import com.em.batterywidget.HistoryViewManager;
 import com.em.batterywidget.R;
 
-
 public class HistoryViewManagerTest extends ActivityInstrumentationTestCase2<HistoryViewManager> {
-    
-    
+
     public HistoryViewManagerTest() {
         super(HistoryViewManager.class);
     }
 
-  
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        
         HistoryViewManager activity = getActivity();
-        
         assertNotNull(activity);
-        
         assertNotNull(activity.getWindow().getDecorView());
     }
 
-/*    
+    /*
+     * @MediumTest public void testLifeCycle() { HistoryViewManager activity =
+     * getActivity(); getInstrumentation().callActivityOnStart(activity);
+     * getInstrumentation().callActivityOnResume(activity);
+     * getInstrumentation().callActivityOnPause(activity);
+     * getInstrumentation().callActivityOnStop(activity);
+     * getInstrumentation().callActivityOnDestroy(activity); }
+     */
+
     @MediumTest
-    public void testLifeCycle() {
-        
+    public void testCurrentView() {
         HistoryViewManager activity = getActivity();
-        
-        getInstrumentation().callActivityOnStart(activity);
-        getInstrumentation().callActivityOnResume(activity);
-        getInstrumentation().callActivityOnPause(activity);
-        getInstrumentation().callActivityOnStop(activity);
-        getInstrumentation().callActivityOnDestroy(activity);
-    }
-*/    
-    
-    @MediumTest
-    public void testCurrentView(){
-        
-        HistoryViewManager activity = getActivity();
-        
         assertEquals(View.VISIBLE, activity.findViewById(R.id.history_view).getVisibility());
         assertEquals(View.VISIBLE, activity.findViewById(R.id.historyTitle).getVisibility());
         assertEquals(View.VISIBLE, activity.findViewById(R.id.chart).getVisibility());
     }
-    
-}
 
+}

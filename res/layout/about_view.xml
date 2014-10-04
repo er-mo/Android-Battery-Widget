@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<!--
 *  Copyright 2012 Erkan Molla
 *
 *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,154 +13,164 @@
 *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 *  See the License for the specific language governing permissions and
 *  limitations under the License.
- -->
- <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-     	android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-        
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:paddingBottom="20dp"
-        android:background="@color/Black" >
+        android:background="@color/Black"
+        android:paddingBottom="20dp" >
 
         <LinearLayout
             android:id="@+id/layout_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="20dp" >
+
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/launcher" />
+
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="35dp"
+                android:text="@string/widget_name"
+                android:textColor="@color/White"
                 android:textSize="24dp"
                 android:textStyle="bold"
-                android:typeface="serif"
-                android:text="@string/widget_name"
-                android:textColor="@color/White" />
+                android:typeface="serif" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/versionTextView"
-            android:layout_below="@+id/layout_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_below="@+id/layout_1"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
             android:text="@string/packageVersion"
             android:textColor="@color/White" />
 
         <LinearLayout
             android:id="@+id/layout_2"
-            android:layout_below="@+id/versionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/versionTextView"
             android:layout_marginTop="35dp"
             android:orientation="vertical" >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/authorInfo"
-                android:textSize="16dp"
-                android:textColor="@color/White" />
+                android:textColor="@color/White"
+                android:textSize="16dp" />
         </LinearLayout>
-        
+
         <LinearLayout
             android:id="@+id/layout_3"
-            android:layout_below="@+id/layout_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_2"
             android:layout_marginTop="30dp"
             android:orientation="vertical" >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/aboutThisApp"
                 android:textColor="@color/White"
-                android:textSize="16dp"
-                android:text="@string/aboutThisApp" />
+                android:textSize="16dp" />
         </LinearLayout>
-        
+
         <LinearLayout
             android:id="@+id/layout_4"
-            android:layout_below="@+id/layout_3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_below="@+id/layout_3"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical" >
-                <ImageView 
-                    android:layout_height="30dp" 
-                    android:layout_width="fill_parent"
-                    android:layout_marginRight="10dp" 
-                    android:layout_marginLeft="10dp" 
-                    android:src="@drawable/logo_github" />
-                <Button 
-                    android:layout_width="fill_parent" 
-                    android:layout_height="wrap_content"
-                    android:id="@+id/github_button"
-                    style="@style/button_style"
-                    android:background="@drawable/gray_button"
-                    android:text="@string/githubButtonName" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/logo_github" />
+
+            <Button
+                android:id="@+id/github_button"
+                style="@style/button_style"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gray_button"
+                android:text="@string/githubButtonName" />
         </LinearLayout>
-        
+
         <LinearLayout
             android:id="@+id/layout_5"
-            android:layout_below="@+id/layout_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_4"
             android:layout_marginTop="30dp" >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/donation"
                 android:textColor="@color/White"
-                android:textSize="16dp"
-                android:text="@string/donation" />
+                android:textSize="16dp" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/layout_6"
-            android:layout_below="@+id/layout_5"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_below="@+id/layout_5"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical" >
-                <ImageView 
-                    android:layout_height="30dp" 
-                    android:layout_width="fill_parent"
-                    android:layout_marginRight="10dp" 
-                    android:layout_marginLeft="10dp" 
-                    android:src="@drawable/logo_paypal" />
-                <Button 
-                    android:layout_width="fill_parent" 
-                    android:layout_height="wrap_content"
-                    android:id="@+id/paypal_button"
-                    style="@style/button_style"
-                    android:background="@drawable/gray_button"
-                    android:text="@string/paypalButtonName" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/logo_paypal" />
+
+            <Button
+                android:id="@+id/paypal_button"
+                style="@style/button_style"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gray_button"
+                android:text="@string/paypalButtonName" />
         </LinearLayout>
-        
+
         <LinearLayout
             android:id="@+id/layout_7"
-            android:layout_below="@+id/layout_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp" >
+            android:layout_below="@+id/layout_6"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical" >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/publicThanks"
                 android:textColor="@color/White"
-                android:textSize="16dp"
-                android:text="@string/publicThanks" />
+                android:textSize="16dp" />
         </LinearLayout>
-
     </RelativeLayout>
+
 </ScrollView>

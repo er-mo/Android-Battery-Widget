@@ -18,35 +18,25 @@ package com.em.batterywidget.tests;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.MediumTest;
-
 import com.em.batterywidget.OptionsManager;
 
-
 public class OptionsManagerTest extends ActivityInstrumentationTestCase2<OptionsManager> {
-    
-    
+
     public OptionsManagerTest() {
         super(OptionsManager.class);
     }
 
-  
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        
         OptionsManager activity = getActivity();
-        
         assertNotNull(activity);
-        
         assertNotNull(activity.getWindow().getDecorView());
     }
 
-    
     @MediumTest
     public void testLifeCycle() {
-        
         OptionsManager activity = getActivity();
-        
         getInstrumentation().callActivityOnStart(activity);
         getInstrumentation().callActivityOnResume(activity);
         getInstrumentation().callActivityOnPause(activity);
@@ -55,4 +45,3 @@ public class OptionsManagerTest extends ActivityInstrumentationTestCase2<Options
     }
 
 }
-

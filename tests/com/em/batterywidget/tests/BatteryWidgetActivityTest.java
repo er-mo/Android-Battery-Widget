@@ -19,49 +19,36 @@ package com.em.batterywidget.tests;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.view.View;
-
 import com.em.batterywidget.BatteryWidgetActivity;
 import com.em.batterywidget.R;
 
-
 public class BatteryWidgetActivityTest extends ActivityInstrumentationTestCase2<BatteryWidgetActivity> {
-    
-    
-    public BatteryWidgetActivityTest() {   
+
+    public BatteryWidgetActivityTest() {
         super(BatteryWidgetActivity.class);
     }
 
-  
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        
         BatteryWidgetActivity activity = getActivity();
-        
         assertNotNull(activity);
-        
         assertNotNull(activity.getWindow().getDecorView());
     }
-    
-    
+
     @MediumTest
     public void testLifeCycle() {
-        
         BatteryWidgetActivity activity = getActivity();
-        
         getInstrumentation().callActivityOnStart(activity);
         getInstrumentation().callActivityOnResume(activity);
         getInstrumentation().callActivityOnPause(activity);
         getInstrumentation().callActivityOnStop(activity);
         getInstrumentation().callActivityOnDestroy(activity);
     }
-    
-    
+
     @MediumTest
-    public void testCurrentView(){
-        
+    public void testCurrentView() {
         BatteryWidgetActivity activity = getActivity();
-        
         assertEquals(View.VISIBLE, activity.findViewById(R.id.state).getVisibility());
         assertEquals(View.VISIBLE, activity.findViewById(R.id.plug).getVisibility());
         assertEquals(View.VISIBLE, activity.findViewById(R.id.level).getVisibility());
@@ -72,8 +59,7 @@ public class BatteryWidgetActivityTest extends ActivityInstrumentationTestCase2<
         assertEquals(View.VISIBLE, activity.findViewById(R.id.health).getVisibility());
         assertEquals(View.VISIBLE, activity.findViewById(R.id.summaryButton).getVisibility());
         assertEquals(View.VISIBLE, activity.findViewById(R.id.settingsButton).getVisibility());
-        assertEquals(View.VISIBLE, activity.findViewById(R.id.historyButton).getVisibility());    
+        assertEquals(View.VISIBLE, activity.findViewById(R.id.historyButton).getVisibility());
     }
-    
-}
 
+}

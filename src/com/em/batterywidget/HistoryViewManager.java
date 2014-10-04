@@ -16,21 +16,20 @@
 
 package com.em.batterywidget;
 
-import com.em.batterywidget.storage.SQLiteDataBase;
-
 import android.app.Activity;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Paint.Align;
 import android.os.Bundle;
-import android.widget.*;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.em.batterywidget.storage.SQLiteDataBase;
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
 import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
-
 
 public class HistoryViewManager extends Activity {
 
@@ -42,11 +41,9 @@ public class HistoryViewManager extends Activity {
     private XYSeries                 xYSeries;
     private TextView                 titleTextView;
 
-    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
         setContentView(R.layout.history_view);
 
         db = new SQLiteDataBase(getApplicationContext());
@@ -54,18 +51,14 @@ public class HistoryViewManager extends Activity {
 
         titleTextView = (TextView) findViewById(R.id.historyTitle);
         chartContainer = (LinearLayout) findViewById(R.id.chart);
-
     }
 
-    
     @Override
     public void onResume() {
         super.onResume();
-
         if (db.availableEntries()) {
             titleTextView.setText(this.getString(R.string.availableData));
             chartInit();
-
             new Thread(new Runnable() {
                 public void run() {
                     try {
@@ -74,29 +67,26 @@ public class HistoryViewManager extends Activity {
                     }
                 }
             }).start();
-        } 
+        }
         else {
             titleTextView.setText(this.getString(R.string.notAvailableDataYet));
             db.close();
         }
-
     }
 
-    
     @Override
     public void onPause() {
         super.onPause();
-
         if (chartContainer != null)
             chartContainer.removeAllViews();
     }
-    
 
     public void chartInit() {
-
         if (chartView == null) {
             renderer = new XYMultipleSeriesRenderer();
-            renderer.setMargins(new int[] { 30, 35, 30, 10 }); // {top, left, bottom, right};
+            renderer.setMargins(new int[] {
+                    30, 35, 30, 10
+            }); // {top, left, bottom, right};
             renderer.setXTitle(Constants.XAxisTitle);
             renderer.setYTitle(Constants.YAxisTitle);
             renderer.setLabelsColor(Color.WHITE);
@@ -118,7 +108,6 @@ public class HistoryViewManager extends Activity {
 
             XYSeriesRenderer mMainRenderer = new XYSeriesRenderer();
             mMainRenderer.setColor(Color.CYAN);
-
             renderer.addSeriesRenderer(mMainRenderer);
             chartView = ChartFactory.getTimeChartView(this, dataSet, renderer, Constants.DateFormat);
 
@@ -127,10 +116,9 @@ public class HistoryViewManager extends Activity {
     }
 
     private void chartDraw() {
-
         int oldLevel = -1;
-        int level    = 0;
-        long time    = System.currentTimeMillis();
+        int level = 0;
+        long time = System.currentTimeMillis();
         boolean skip = false;
 
         Cursor cursor = db.getEntries();

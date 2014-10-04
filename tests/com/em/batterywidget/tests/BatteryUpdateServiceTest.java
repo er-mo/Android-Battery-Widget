@@ -16,45 +16,36 @@
 
 package com.em.batterywidget.tests;
 
-import com.em.batterywidget.BatteryUpdateService;
-
 import android.content.Intent;
 import android.os.IBinder;
 import android.test.ServiceTestCase;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.test.suitebuilder.annotation.SmallTest;
-
+import com.em.batterywidget.BatteryUpdateService;
 
 public class BatteryUpdateServiceTest extends ServiceTestCase<BatteryUpdateService> {
 
-    
     public BatteryUpdateServiceTest() {
         super(BatteryUpdateService.class);
     }
- 
-    
-     @Override                                                                                                                                     
-     protected void setUp() throws Exception {
-         super.setUp();    
-     }
-    
-     
-     @SmallTest
-     public void testStartable() {
-         
-         Intent startIntent = new Intent();
-         startIntent.setClass(getContext(), BatteryUpdateService.class);
-         startService(startIntent);
-     }
-     
-     
-     @MediumTest
-     public void testBindable() {
-         
-         Intent startIntent = new Intent();
-         startIntent.setClass(getContext(), BatteryUpdateService.class);
-         IBinder service = bindService(startIntent);
-     }
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+    }
+
+    @SmallTest
+    public void testStartable() {
+        Intent startIntent = new Intent();
+        startIntent.setClass(getContext(), BatteryUpdateService.class);
+        startService(startIntent);
+    }
+
+    @MediumTest
+    public void testBindable() {
+        Intent startIntent = new Intent();
+        startIntent.setClass(getContext(), BatteryUpdateService.class);
+        IBinder service = bindService(startIntent);
+    }
 
 }
-

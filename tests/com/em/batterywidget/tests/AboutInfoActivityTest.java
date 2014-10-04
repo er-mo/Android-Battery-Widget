@@ -19,49 +19,36 @@ package com.em.batterywidget.tests;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.view.View;
-
 import com.em.batterywidget.AboutInfoActivity;
 import com.em.batterywidget.R;
 
-
 public class AboutInfoActivityTest extends ActivityInstrumentationTestCase2<AboutInfoActivity> {
 
-    
     public AboutInfoActivityTest() {
         super(AboutInfoActivity.class);
     }
 
-  
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        
         AboutInfoActivity activity = getActivity();
-        
         assertNotNull(activity);
-        
         assertNotNull(activity.getWindow().getDecorView());
     }
-    
-    
+
     @MediumTest
     public void testLifeCycle() {
-        
         AboutInfoActivity activity = getActivity();
-        
         getInstrumentation().callActivityOnStart(activity);
         getInstrumentation().callActivityOnResume(activity);
         getInstrumentation().callActivityOnPause(activity);
         getInstrumentation().callActivityOnStop(activity);
         getInstrumentation().callActivityOnDestroy(activity);
     }
-    
-    
+
     @MediumTest
-    public void testCurrentView(){
-        
+    public void testCurrentView() {
         AboutInfoActivity activity = getActivity();
-        
         assertEquals(View.VISIBLE, activity.findViewById(R.id.layout_1).getVisibility());
         assertEquals(View.VISIBLE, activity.findViewById(R.id.layout_2).getVisibility());
         assertEquals(View.VISIBLE, activity.findViewById(R.id.layout_3).getVisibility());
@@ -74,4 +61,3 @@ public class AboutInfoActivityTest extends ActivityInstrumentationTestCase2<Abou
     }
 
 }
-

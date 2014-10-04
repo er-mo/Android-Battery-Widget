@@ -1,19 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?> 
-
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
- <color name="White">#FFFFFF</color>
- <color name="Ivory">#FFFFF0</color>
- <color name="LightYellow">#FFFFE0</color>
- <color name="Yellow">#FFFF00</color>
- <color name="Cornsilk">#FFF8DC</color>
- <color name="Seashell">#FFF5EE</color>
- <color name="DarkGray">#A9A9A9</color>
- <color name="Gray">#808080</color>
- <color name="DimGray">#696969</color>
- <color name="DarkSlateGray">#2F4F4F</color>
- <color name="LightSlateGray">#778899</color> 
- <color name="SlateGray">#708090</color>
- <color name="LavenderBlush">#FFF0F5</color>
- <color name="LightBlue">#00CCFF</color>
- <color name="Black">#000000</color> 
+
+    <color name="White">#FFFFFF</color>
+    <color name="Ivory">#FFFFF0</color>
+    <color name="LightYellow">#FFFFE0</color>
+    <color name="Yellow">#FFFF00</color>
+    <color name="Cornsilk">#FFF8DC</color>
+    <color name="Seashell">#FFF5EE</color>
+    <color name="DarkGray">#A9A9A9</color>
+    <color name="Gray">#808080</color>
+    <color name="DimGray">#696969</color>
+    <color name="DarkSlateGray">#2F4F4F</color>
+    <color name="LightSlateGray">#778899</color>
+    <color name="SlateGray">#708090</color>
+    <color name="LavenderBlush">#FFF0F5</color>
+    <color name="LightBlue">#00CCFF</color>
+    <color name="Black">#000000</color>
+
 </resources>

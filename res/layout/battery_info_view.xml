@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>          
-<!-- 
+<?xml version="1.0" encoding="utf-8"?>
+<!--
 *  Copyright 2012 Erkan Molla
 *
 *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,153 +13,183 @@
 *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 *  See the License for the specific language governing permissions and
 *  limitations under the License.
- -->
+-->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent" 
-              android:layout_height="fill_parent"
-              android:paddingTop="40dp"
-              android:paddingBottom="40dp"
-              android:paddingLeft="22dp"
-              android:paddingRight="22dp"
-              android:orientation="vertical"
-              android:gravity="center|top"
-              android:scrollbars="none" >
-      
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/info_view_background" >
-    
-    <TableLayout 
-        android:layout_width="fill_parent" 
-        android:layout_height="wrap_content" >
-       
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
-            android:paddingTop="10dp"
-            android:paddingBottom="15dp" >
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="15dp"
-                android:src="@drawable/info_view_picture" >
-            </ImageView>
-    		<TextView
-    		    android:layout_width="fill_parent"
-    		    android:layout_height="35dp"
-    		    android:textSize="25dp"
-    		    android:textStyle="bold"
-    		    android:typeface="serif" 
-    		    android:textColor="@color/White"
-    		    android:text="@string/textBatteryInfo">
-		    </TextView>   
-        </LinearLayout>
-         
-        <TableRow>
-            <TextView 
-                style="@style/style_table_1" 
-                android:text="@string/textState" />
-            <TextView 
-                style="@style/style_table_2" 
-                android:id="@+id/state" />
-        </TableRow>
-        <TableRow>
-            <TextView 
-                style="@style/style_table_1" 
-                android:text="@string/textPlug" />
-            <TextView 
-                style="@style/style_table_2" 
-                android:id="@+id/plug" />
-        </TableRow>
-        <TableRow>
-            <TextView 
-                style="@style/style_table_1" 
-                android:text="@string/textLevel" />
-            <TextView 
-                style="@style/style_table_2" 
-                android:id="@+id/level" />
-        </TableRow>
-        <TableRow>
-            <TextView 
-                style="@style/style_table_1" 
-                android:text="@string/textScale" />
-            <TextView 
-                style="@style/style_table_2" 
-                android:id="@+id/scale" />
-        </TableRow>
-        <TableRow>
-            <TextView 
-                style="@style/style_table_1" 
-                android:text="@string/textVoltage" />                                                        
-            <TextView 
-                style="@style/style_table_2" 
-                android:id="@+id/voltage" />
-        </TableRow>
-    	<TableRow>
-            <TextView 
-                style="@style/style_table_1" 
-                android:text="@string/textTemperature" />
-            <TextView 
-                style="@style/style_table_2" 
-                android:id="@+id/temperature" />
-        </TableRow>
-        <TableRow>
-            <TextView 
-                style="@style/style_table_1" 
-                android:text="@string/textTechnology" />
-            <TextView 
-                style="@style/style_table_2" 
-                android:id="@+id/technology" />
-        </TableRow>
-        <TableRow>
-            <TextView 
-                style="@style/style_table_1" 
-                android:text="@string/textHealth" />
-            <TextView 
-                style="@style/style_table_2" 
-                android:id="@+id/health" />
-        </TableRow>  
-        
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="15dp" 
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp" > 
-            <Button 
-                android:id="@+id/summaryButton"
-                android:background="@drawable/black_button"
-                style="@style/button_style"
-                android:text="@string/infoViewSummaryButton" />
-        </LinearLayout>
-        <LinearLayout 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="3dp" 
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp" >
-            <Button 
-                android:id="@+id/historyButton"
-                android:background="@drawable/black_button"
-                style="@style/button_style"
-                android:text="@string/infoViewHistoryButton" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="3dp"
-            android:paddingBottom="10dp" 
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp" >
-            <Button
-                android:id="@+id/settingsButton"
-                android:background="@drawable/black_button"
-                style="@style/button_style"
-                android:text="@string/infoViewOptionsButton" />
-        </LinearLayout>
-			
-    </TableLayout>
-</RelativeLayout>
+    android:gravity="center|top"
+    android:orientation="vertical"
+    android:paddingBottom="40dp"
+    android:paddingLeft="22dp"
+    android:paddingRight="22dp"
+    android:paddingTop="40dp"
+    android:scrollbars="none" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/info_view_background" >
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:paddingTop="10dp" >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/info_view_picture" >
+                </ImageView>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="35dp"
+                    android:text="@string/textBatteryInfo"
+                    android:textColor="@color/White"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:typeface="serif" >
+                </TextView>
+            </LinearLayout>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/style_table_1"
+                    android:text="@string/textState" />
+
+                <TextView
+                    android:id="@+id/state"
+                    style="@style/style_table_2" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/style_table_1"
+                    android:text="@string/textPlug" />
+
+                <TextView
+                    android:id="@+id/plug"
+                    style="@style/style_table_2" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/style_table_1"
+                    android:text="@string/textLevel" />
+
+                <TextView
+                    android:id="@+id/level"
+                    style="@style/style_table_2" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/style_table_1"
+                    android:text="@string/textScale" />
+
+                <TextView
+                    android:id="@+id/scale"
+                    style="@style/style_table_2" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/style_table_1"
+                    android:text="@string/textVoltage" />
+
+                <TextView
+                    android:id="@+id/voltage"
+                    style="@style/style_table_2" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/style_table_1"
+                    android:text="@string/textTemperature" />
+
+                <TextView
+                    android:id="@+id/temperature"
+                    style="@style/style_table_2" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/style_table_1"
+                    android:text="@string/textTechnology" />
+
+                <TextView
+                    android:id="@+id/technology"
+                    style="@style/style_table_2" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/style_table_1"
+                    android:text="@string/textHealth" />
+
+                <TextView
+                    android:id="@+id/health"
+                    style="@style/style_table_2" />
+            </TableRow>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="15dp" >
+
+                <Button
+                    android:id="@+id/summaryButton"
+                    style="@style/button_style"
+                    android:background="@drawable/black_button"
+                    android:text="@string/infoViewSummaryButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3dp" >
+
+                <Button
+                    android:id="@+id/historyButton"
+                    style="@style/button_style"
+                    android:background="@drawable/black_button"
+                    android:text="@string/infoViewHistoryButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3dp" >
+
+                <Button
+                    android:id="@+id/settingsButton"
+                    style="@style/button_style"
+                    android:background="@drawable/black_button"
+                    android:text="@string/infoViewOptionsButton" />
+            </LinearLayout>
+        </TableLayout>
+    </RelativeLayout>
+
 </ScrollView>
