@@ -126,12 +126,12 @@ public class WidgetActivity extends Activity {
             XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
             renderer.setYAxisMax(100);
             renderer.setYAxisMin(0);
-            renderer.setAxisTitleTextSize(16);
+            renderer.setAxisTitleTextSize(20);
             renderer.setChartTitleTextSize(20);
-            renderer.setLabelsTextSize(15);
-            renderer.setLegendTextSize(15);
+            renderer.setLabelsTextSize(20);
+            renderer.setLegendTextSize(20);
             renderer.setPanEnabled(true, false);
-            renderer.setMargins(new int[]{20, 30, 15, 0});
+            renderer.setMargins(new int[]{18, 18, 18, 18});
             renderer.setZoomEnabled(true, false);
             renderer.setShowGrid(true);
             renderer.setZoomButtonsVisible(false);

@@ -14,7 +14,6 @@
 *  See the License for the specific language governing permissions and
 *  limitations under the License.
 -->
-
 <RelativeLayout
     android:id="@+id/widget_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -134,11 +133,11 @@
         android:layout_alignTop="@+id/battery_view"
         android:gravity="center|center"
         android:maxLines="1"
-        android:shadowColor="@color/Black"
+        android:shadowColor="@android:color/background_dark"
         android:shadowDx="3"
         android:shadowDy="3"
         android:shadowRadius="4"
-        android:textColor="@color/White"
+        android:textColor="@android:color/white"
         android:textSize="15sp"
         android:textStyle="bold"
         android:typeface="sans"/>
