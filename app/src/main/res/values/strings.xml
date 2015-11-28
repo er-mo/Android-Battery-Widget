@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Battery Widget Indicator</string>
+    <string name="widget_name">Battery Widget</string>
+    <string name="service_description">Widget Update Service</string>
+    <string name="battery_broadcast_receiver">Battery Broadcast Receiver</string>
+    <string name="textBatteryInfo">Battery Info</string>
+    <string name="textState">State:</string>
+    <string name="textStatus">Status: </string>
+    <string name="textPlug">Plug:</string>
+    <string name="textLevel">Level:</string>
+    <string name="textScale">Scale:</string>
+    <string name="textVoltage">Voltage:</string>
+    <string name="textTemperature">Temperature:</string>
+    <string name="textTechnology">Technology:</string>
+    <string name="textHealth">Health:</string>
+    <string name="Unknown">Unknown</string>
+    <string name="Empty"></string>
+    <string name="batteryStatusCharging">Charging</string>
+    <string name="batteryStatusChargingAC">Charging(AC)</string>
+    <string name="batteryStatusChargingUSB">Charging(USB)</string>
+    <string name="batteryStatusDischarging">Discharging</string>
+    <string name="batteryStatusFull">Full</string>
+    <string name="batteryStatusNotCharging">Not charging</string>
+    <string name="batteryPlugAC">AC plugged</string>
+    <string name="batteryPlugUSB">USB plugged</string>
+    <string name="batteryPlugNone">Not plugged</string>
+    <string name="batteryHealthDead">Dead</string>
+    <string name="batteryHealthGood">Good</string>
+    <string name="batteryHealthOverVoltage">Over voltage</string>
+    <string name="batteryHealthOverheat">Overheat</string>
+    <string name="batteryHealthUnspecifiedFailure">Unspecified failure</string>
+    <string name="batteryLevelSymbol">%</string>
+    <string name="batteryVoltSymbol"> mV</string>
+    <string name="batteryCelsiusSymbol">\u00B0 C</string>
+    <string name="batteryFahrenheitSymbol">\u00B0 F</string>
+    <string name="infoViewSummaryButton">Summary</string>
+    <string name="infoViewOptionsButton">Options</string>
+    <string name="infoViewPreferencesButton">Preferences</string>
+    <string name="infoViewHistoryButton">History</string>
+    <string name="settingsManager">Battery Widget Settings</string>
+    <string name="historyViewManager">Battery History Details</string>
+    <string name="aboutView">About this app</string>
+    <string name="availableData">Charge History</string>
+    <string name="notAvailableDataYet">No history data available</string>
+    <string name="packageVersion">Version 1.4.1</string>
+    <string name="authorInfo">        \nDeveloper: Erkan Molla</string>
+    <string name="aboutThisApp">        \nThis app is placed on your home screen so you can quickly check your battery level.
+        \nIt is an open source project and licensed with Apache License 2.0.
+        \nFeel free to contribute to the development of the project on GitHub.</string>
+    <string name="donation">        \nIf you wish to support the development please consider making a donation with paypal. Thank You!</string>
+    <string name="publicThanks">        \nI would like to send my public thanks to \'bilentkal@gmail.com\' for the battery icons.
+        \nContact him if you are developer.</string>
+    <string name="githubButtonName">Go to GitHub</string>
+    <string name="paypalButtonName">Go to PayPal</string>
+    <string name="title_activity_widget">WidgetActivity</string>
+
+</resources>

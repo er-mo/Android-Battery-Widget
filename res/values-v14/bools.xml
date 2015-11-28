@@ -1,6 +1,0 @@
-<resources>
-
-    <bool name="lowVersion">false</bool>
-    <bool name="IceCreamSandwich">true</bool>
-
-</resources>
