@@ -1,0 +1,10 @@
+language: android
+env:
+  matrix:
+    - ANDROID_TARGET=android-22  ANDROID_ABI=armeabi-v7a
+
+android:
+  components:
+    - build-tools-24.0.0
+    - android-22
+    - sys-img-armeabi-v7a-android-22
