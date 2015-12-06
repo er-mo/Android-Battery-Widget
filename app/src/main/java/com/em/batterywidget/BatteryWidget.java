@@ -18,6 +18,7 @@ package com.em.batterywidget;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 
@@ -39,7 +40,13 @@ public class BatteryWidget extends AppWidgetProvider {
     @Override
     public void onDeleted(Context context, int[] widgetIds) {
         super.onDeleted(context, widgetIds);
-        context.stopService(new Intent(context, MonitorService.class));
+        // stop monitoring if there are no more widgets on screen
+        ComponentName componentName = new ComponentName(context, BatteryWidget.class);
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        int[] activeWidgetIds = appWidgetManager.getAppWidgetIds(componentName);
+        if (activeWidgetIds != null && activeWidgetIds.length == 0) {
+            context.stopService(new Intent(context, MonitorService.class));
+        }
     }
 
 }
