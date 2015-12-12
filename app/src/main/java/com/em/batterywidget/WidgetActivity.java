@@ -107,6 +107,10 @@ public class WidgetActivity extends Activity {
         if (mGraphLayout != null) {
             mGraphLayout.removeAllViews();
         }
+        if (BatteryWidget.getNumberOfWidgets(this) == 0) {
+            // stop monitoring if there are no more widgets on screen
+            stopService(new Intent(this, MonitorService.class));
+        }
     }
 
     private synchronized void updateView(BatteryInfo batteryInfo) {
