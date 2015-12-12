@@ -27,6 +27,15 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".WidgetActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
         <receiver android:name=".BatteryWidget">
             <intent-filter>
@@ -38,6 +47,14 @@
                 android:resource="@xml/widget"/>
         </receiver>
 
+        <receiver
+            android:name=".BootReceiver"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
         <service
             android:name=".MonitorService"
             android:exported="false"/>
@@ -46,15 +63,5 @@
             android:name=".UpdateService"
             android:exported="false"/>
 
-        <activity
-            android:name=".WidgetActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
     </application>
-
 </manifest>
