@@ -38,6 +38,9 @@ public class UpdateService extends IntentService {
     public static final String ACTION_BATTERY_CHANGED = "com.em.batterywidget.action.BATTERY_CHANGED";
     public static final String ACTION_BATTERY_LOW = "com.em.batterywidget.action.BATTERY_LOW";
     public static final String ACTION_BATTERY_OKAY = "com.em.batterywidget.action.BATTERY_OKAY";
+    public static final String ACTION_WIDGET_UPDATE = "com.em.batterywidget.action.WIDGET_UPDATE";
+
+    public static final String EXTRA_WIDGET_IDS = "com.em.batterywidget.extra.WIDGET_IDS";
 
     /**
      * Creates an UpdateService.
@@ -79,6 +82,16 @@ public class UpdateService extends IntentService {
             } else if (ACTION_BATTERY_OKAY.equals(action)) {
                 Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 vibrator.vibrate(1500);
+            } else if (ACTION_WIDGET_UPDATE.equals(action)) {
+                SharedPreferences sharedPreferences = PreferenceManager
+                        .getDefaultSharedPreferences(this);
+                BatteryInfo batteryInfo = new BatteryInfo(sharedPreferences);
+                final int level = batteryInfo.getLevel();
+                final boolean isCharging = batteryInfo.isCharging();
+                RemoteViews remoteViews = createRemoteViews(level, isCharging);
+                final int[] widgetIds = intent.getIntArrayExtra(EXTRA_WIDGET_IDS);
+                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
+                appWidgetManager.updateAppWidget(widgetIds, remoteViews);
             }
         }
     }
