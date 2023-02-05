@@ -130,7 +130,7 @@ public class UpdateService extends IntentService {
                 View.VISIBLE : View.INVISIBLE);
         remoteViews.setTextViewText(R.id.batterytext, String.valueOf(level) + "%");
         Intent activityIntent = new Intent(this, WidgetActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, activityIntent, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, activityIntent, PendingIntent.FLAG_IMMUTABLE );
         remoteViews.setOnClickPendingIntent(R.id.widget_view, pendingIntent);
         return remoteViews;
     }

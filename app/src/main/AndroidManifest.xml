@@ -29,7 +29,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".WidgetActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -37,7 +38,8 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".BatteryWidget">
+        <receiver android:name=".BatteryWidget"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
@@ -49,7 +51,8 @@
 
         <receiver
             android:name=".BootReceiver"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
